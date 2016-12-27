@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/mvc 
+		http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context-3.0.xsd
+		http://www.springframework.org/schema/tx
+      	http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+        http://www.springframework.org/schema/beans 
+        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd"
+	default-autowire="byType">
+
+ 	 <!-- 默认访问跳转到登录页面 -->
+     <mvc:view-controller path="/" view-name="forward:/home" />
+
+	<!-- <context:property-placeholder location="classpath:dispatcher.properties" /> -->
+
+	<!-- 启用spring mvc 注解 -->
+	<context:annotation-config />
+	
+ <!--   <mvc:annotation-driven >
+		<mvc:message-converters>
+			<bean class="com.wqj.responseBody.util.UTF8StringHttpMessageConverter" />
+		</mvc:message-converters>
+	</mvc:annotation-driven> -->
+
+	<mvc:annotation-driven  validator="validator" conversion-service="myDateConverter">
+		<!-- JSON所需配置 -->
+<!-- 		<mvc:message-converters register-defaults="true"> -->
+<!-- 			<bean class="org.springframework.http.converter.ByteArrayHttpMessageConverter" /> -->
+<!-- 			<bean class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter"> -->
+<!-- 				<property name="supportedMediaTypes"> -->
+<!-- 					<list> -->
+<!-- 						<value>application/json;charset=UTF-8</value> -->
+<!-- 						<value>text/html;charset=UTF-8</value> -->
+<!-- 					</list> -->
+<!-- 				</property> -->
+<!-- 			</bean> -->
+<!-- 		</mvc:message-converters> -->
+        <mvc:argument-resolvers>
+            <bean class="com.wqj.common.annotation.method.CurrentUserMethodArgumentResolver"/>
+        </mvc:argument-resolvers>
+	</mvc:annotation-driven>
+	
+	<!-- springmvc日期的参数绑定 -->
+<!-- 	<bean id="myDateFormatter"  class="org.springframework.format.support.FormattingConversionServiceFactoryBean"> -->
+<!-- 		<property name="formatters"> -->
+<!-- 			<bean class="com.wqj.parameBinding.util.MyDateFormatter"></bean> -->
+<!-- 		</property> -->
+<!-- 	</bean> -->
+
+	<!-- springmvc日期的参数绑定 -->
+	<bean id="myDateConverter"  class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
+<!-- 		<property name="converters"> -->
+<!-- 			<bean class="com.wqj.parameBinding.util.MyDateConverter"></bean> -->
+<!-- 		</property> -->
+			<property name="formatters">
+				<bean class="com.wqj.parameBinding.util.formatter.DateAnotationFormatter"></bean>
+			</property>
+	</bean>
+
+
+	<!-- 配置自动扫描 -->
+	<context:component-scan base-package="com.wqj">
+		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Service" />
+	</context:component-scan>
+
+
+	<!-- 引入静态资源的路径 -->
+	<mvc:resources mapping="/images/**" location="/images/" />
+	<mvc:resources mapping="/js/**" location="/js/" />
+	<mvc:resources mapping="/css/**" location="/css/" /> 
+
+	<!-- 配置默认servlet handler -->
+<!-- 	<mvc:default-servlet-handler /> -->
+
+
+	<!-- 配置视图解析器  -->
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<!--视图前缀controller中的方法返回的url字符串会添加该前缀 -->
+		<property name="prefix" value="/WEB-INF/pages/" />
+		<!-- 视图后缀,controller中的方法返回的url字符串会添加该后缀 -->
+		<property name="suffix" value=".jsp" />
+	</bean>
+	
+</beans>

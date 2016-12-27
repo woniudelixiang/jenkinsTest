@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:task="http://www.springframework.org/schema/task" xmlns:jaxws="http://cxf.apache.org/jaxws"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+      http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+      http://www.springframework.org/schema/tx
+      http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+      http://www.springframework.org/schema/aop
+      http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+      http://www.springframework.org/schema/context
+      http://www.springframework.org/schema/context/spring-context-3.0.xsd
+      http://www.springframework.org/schema/task      
+      http://www.springframework.org/schema/task/spring-task-3.0.xsd
+      http://cxf.apache.org/jaxws 
+	  http://cxf.apache.org/schemas/jaxws.xsd"
+	default-autowire="byType">
+
+	<!-- http://www.tuicool.com/articles/BVbu2uU -->
+
+	<!-- 配置JMS连接工厂 -->
+	<bean id="targetConnectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
+		<property name="brokerURL" value="tcp://localhost:61616" />
+		<property name="useAsyncSend" value="true" />  <!-- 表示异步传送，默认是false，同步 -->
+	</bean>
+
+	<!-- 用于管理 jms connection factory -->
+	<bean id="connectionFactory" class="org.springframework.jms.connection.SingleConnectionFactory">
+		<property name="targetConnectionFactory" ref="targetConnectionFactory"></property>
+	</bean>
+
+	 <!-- 配置 Spring JMS Template 即JMS工具类，它可以进行消息发送、接收等-->  
+	<bean id="jmsTemplate" class="org.springframework.jms.core.JmsTemplate">
+		<property name="connectionFactory" ref="connectionFactory"></property>
+		<!-- <property name="connectionFactory" ref="pooledConnectionFactory"></property> -->
+		<property name="messageConverter">
+			<bean class="org.springframework.jms.support.converter.SimpleMessageConverter"></bean>
+		</property>
+	</bean>
+
+	<!--发送消息的Queue -->
+	<bean id="queueDestination" class="org.apache.activemq.command.ActiveMQQueue">
+		<constructor-arg>
+			<value>DEMO,queue,testQueue</value>   <!-- 这里配置 DEMO, QUEUE 和 testQueue这3个队列-->
+		</constructor-arg>
+	</bean>
+
+	<!-- 监听后的业务逻辑处理 -->
+	<bean id="consumerMessageListener" class="com.wqj.activeMQ.controller.AsyncListen" />
+
+	<!-- 监听容器 -->
+	<bean id="jmsContainer" class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+		<property name="connectionFactory" ref="connectionFactory" />
+		<property name="destination" ref="queueDestination" />
+		<property name="messageListener" ref="consumerMessageListener" />
+	</bean>
+	
+</beans>

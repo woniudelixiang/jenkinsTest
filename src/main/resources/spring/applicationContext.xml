@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:task="http://www.springframework.org/schema/task" xmlns:jaxws="http://cxf.apache.org/jaxws"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+      http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+      http://www.springframework.org/schema/tx
+      http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+      http://www.springframework.org/schema/aop
+      http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+      http://www.springframework.org/schema/context
+      http://www.springframework.org/schema/context/spring-context-3.0.xsd
+      http://www.springframework.org/schema/task      
+      http://www.springframework.org/schema/task/spring-task-3.0.xsd
+      http://cxf.apache.org/jaxws 
+	  http://cxf.apache.org/schemas/jaxws.xsd"
+	default-autowire="byType">
+
+	<context:annotation-config />
+	<context:property-placeholder location="classpath:spring/app.properties" />
+
+	<context:component-scan base-package="com.wqj" />
+
+	<!-- 数据源 -->
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="${driverClassName}" />
+		<property name="url" value="${url}" />
+		<property name="username" value="${username}" />
+		<property name="password" value="${password}" />
+		<property name="validationQuery" value="SELECT 1" />
+		<property name="testWhileIdle" value="true" />
+		<property name="timeBetweenEvictionRunsMillis" value="3600000" />
+		<property name="minEvictableIdleTimeMillis" value="18000000" />
+		<property name="testOnBorrow" value="true" />
+	</bean>
+
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="entityInterceptor" >
+			<bean class="com.wqj.common.orm.interceptor.EntityInterceptor" />
+		</property>
+		<property name="dataSource" ref="dataSource" />
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">${hibernate.dialect}</prop>
+				<prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
+				<prop key="hibernate.format_sql">${hibernate.format_sql}</prop>
+				<prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop>
+			</props>
+		</property>
+		<property name="packagesToScan">
+			<list>
+				<value>com.wqj.common.orm.entity</value>
+				<!-- <value>com.wqj.daoDemo.entity</value> -->
+				<!-- <value>com.wqj.jqueryFileUpload.entity</value> -->
+				 <value>com.wqj.*.entity</value> 
+			</list>
+		</property>
+	</bean>
+
+	<!-- 配置 文件上传的支持 -->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+	</bean>
+
+
+<!-- 	<bean id="jedisPoll" class="com.wqj.common.util.JedisUtil">
+    	<constructor-arg index="0" type="String">
+    		<value>127.0.0.1</value>
+    	</constructor-arg>
+    	<constructor-arg index="1" type="int">
+    		<value>6379</value>
+    	</constructor-arg>
+	</bean> -->
+	
+<!--     <bean class="redis.clients.jedis.JedisPool"> -->
+<!-- 		<constructor-arg index="0" type="String"> -->
+<!-- 			<value>${jedis.host}</value> -->
+<!-- 		</constructor-arg> -->
+<!-- 		<constructor-arg index="1" type="int"> -->
+<!-- 			<value>${jedis.port}</value> -->
+<!-- 		</constructor-arg> -->
+<!-- 	</bean> -->
+ 
+	<!-- pool配置 -->
+	<bean id="jedisPoolConfig" class="redis.clients.jedis.JedisPoolConfig">
+		<!--  <property name="maxActive" value="${jedis.maxActive}" /> -->
+		 <property name="maxIdle" value="${jedis.maxIdle}" />
+		<property name="maxWaitMillis" value="${jedis.maxWaitMillis}" />
+		<property name="testOnBorrow" value="${jedis.testOnBorrow}" /> 
+	</bean>
+	
+	<!-- jedis pool配置 -->
+<!-- 	<bean id="jedisPool" class="redis.clients.jedis.JedisPool"> -->
+<!-- 		<constructor-arg index="0" ref="jedisPoolConfig" /> -->
+<!-- 		<constructor-arg index="1" value="${jedis.host}" /> -->
+<!-- 		<constructor-arg index="2" value="${jedis.port}" /> -->
+<!-- 	</bean> -->
+	
+	<!-- JDBC模板 -->
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+<!-- 	<bean id="jmsFactory" class="org.apache.activemq.pool.PooledConnectionFactory" destroy-method="stop">
+		<property name="connectionFactory">
+			<bean class="org.apache.activemq.ActiveMQConnectionFactory">
+				<property name="brokerURL" value="failover:(tcp://192.168.1.111:61616)"></property>
+			</bean>
+		</property>
+	</bean> -->
+
+	<bean id="jmsFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
+		<!--  <property name="brokerURL" value="tcp://192.168.1.111:61616"></property> -->
+		<property name="brokerURL" value="tcp://localhost:61616"></property>
+	</bean>
+	
+	<!--  <bean id="destination" class="org.apache.activemq.command.ActiveMQQueue">
+		<constructor-arg index="0" value="DEMO"></constructor-arg>
+	</bean> -->
+	
+	<bean id="jmsTemplate" class="org.springframework.jms.core.JmsTemplate">
+		<property name="connectionFactory" ref="jmsFactory"></property>
+		<!-- <property name="defaultDestination" ref="destination"></property> -->
+		<property name="messageConverter">
+			<bean class="org.springframework.jms.support.converter.SimpleMessageConverter"></bean>
+		</property>
+	</bean>
+
+
+	<!--***************************监听配置开始*******************************-->	
+
+<!-- <bean id="messageHandler" class="" /> 
+
+<bean id="messageListener" class="org.springframework.jms.listener.adapter.MessageListenerAdapter"> 
+       <constructor-arg ref="messageHandler" /> 
+       <property name="defaultListenerMethod" value="sendReceiptStatusMethod" /> 
+       <property name="messageConverter" ref="messageConverter" /> 
+</bean> 
+
+<mq:consumerListener id="receiptConsumer" connectionFactory="connectionFactory" destination="${mq.consumerdestination}" messageListener="messageListener" exceptionListener="retryContainer" concurrency="${mq.consumer.concurrenc}"/> 
+ -->
+<!--***************************监听配置结束*******************************-->
+
+
+
+
+
+
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<tx:annotation-driven transaction-manager="transactionManager" />
+	
+	<!-- <bean id="hibernateTemplate" class="org.springframework.orm.hibernate3.HibernateTemplate">  
+		<property name="sessionFactory" ref="sessionFactory"></property>  
+	</bean>  --> 
+	
+	<!-- <bean id="myHibernateTemplate" class="com.wqj.common.orm.test.MyHibernateTemplate">  
+		<property name="sessionFactory" ref="sessionFactory"></property>  
+	</bean> 
+	
+	<bean id="UserDao" class="com.wqj.hibernateTemplateDemo.dao.UserDao">  
+		<property name="hibernateTemplate" ref="myHibernateTemplate"></property>  
+	</bean> -->
+	
+
+		<!-- Mail Configure -->
+	<bean id="mail" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<!-- SMTP发送邮件的服务器的IP和端口 -->
+		<property name="host" value="${mail.host}" />
+		<property name="port" value="${mail.port}" />
+
+		<!-- 登陆SMTP邮件发送服务器的用户名和密码 -->
+		<property name="username" value="${mail.username}" />
+		<property name="password" value="${mail.password}" />
+
+		<!-- 获得邮件会话属性,验证登录邮件服务器是否成功 -->
+		<property name="javaMailProperties">
+			<props>
+				<prop key="mail.smtp.auth">true</prop>
+				<prop key="prop">true</prop>
+				<prop key="mail.smtp.timeout">25000</prop>
+			</props>
+		</property>
+	</bean>
+	
+<!-- 	<bean class="redis.clients.jedis.JedisPool"> -->
+<!-- 		<constructor-arg index="0" type="String"> -->
+<!-- 			<value>127.0.0.1</value> -->
+<!-- 		</constructor-arg> -->
+<!-- 		<constructor-arg index="1" type="int"> -->
+<!-- 			<value>6379</value> -->
+<!-- 		</constructor-arg> -->
+<!-- 	</bean> -->
+</beans>

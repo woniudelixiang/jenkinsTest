@@ -1,0 +1,48 @@
+@charset "utf-8";
+
+.highlight{
+ 	border: 1px solid #32BC61;
+    background-color: #fff;
+}
+
+/* 验证不通过元素的样式 */
+input.error{border: 1px solid red} 
+
+/* 验证不通过时提示信息样式 */
+label.error {
+	margin-left: 3px;
+	padding-left: 20px;
+	font-weight: bold;
+	color: #EA5200;
+	font-size: 14px;
+/* 	position: absolute; */
+/*     z-index: 5; */
+	padding-top: 8px;
+	background: url('../images/forbid.png') no-repeat left 85%;
+}
+
+/* 验证通过时提示信息样式 */
+label.right {
+	margin-left: 3px;
+	padding-left: 20px;
+	font-weight: bold;
+	color: #00bd30;
+	font-size: 14px; 
+/* 	position: absolute; */
+/*     z-index: 5; */
+	padding-top: 8px;
+	background: url('../images/right.png') no-repeat left 85%;
+}
+
+/* 获取焦点时的样式 */
+label.tip{
+    margin-left: 3px;
+    padding-left: 20px;
+    font-weight: bold;
+    font-size: 14px; 
+    color: #aaa;
+/*     position: absolute; */
+/*     z-index: 5; */
+	padding-top: 8px;
+    background: url(../images/tip.png) no-repeat left 85%;
+}

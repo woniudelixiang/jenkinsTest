@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+	<!-- 测试 -->
+	<resource id = "export" name="">
+		<head rowIndex = "0" colspan="2" >是的发生的发生</head>
+		<head  rowIndex = "0" >胜多负少</head>
+		<head  rowIndex = "1" field="id">id</head>
+		<head  rowIndex = "1" field = "name">name</head>
+	</resource>
+	
+	<resource id = "export1" name="">
+	<!-- 表头：也叫总标题，整个表格的名称，一般在表格最上方，合并并居中；
+　　		  标题：表格明细的列标题或行标题.
+	-->
+		<head rowIndex = "0" colspan="2" >表头</head>
+		<head  rowIndex = "1" field="sex">性别</head>
+		<head  rowIndex = "1" field = "name">姓名</head>
+	</resource>
+</resources>
