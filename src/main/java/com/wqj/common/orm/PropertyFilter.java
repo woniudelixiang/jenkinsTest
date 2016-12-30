@@ -71,33 +71,42 @@ public class PropertyFilter {
 	 */
 	public static List<PropertyFilter> build(final Map<String, Object> filterParamMap) {
 		List<PropertyFilter> filterList = Lists.newArrayList();
-		// 分析参数Map,构造PropertyFilter列表
-		if(filterParamMap!=null){
+		String filterName = null;
+		Object filterValue = null;
+		String value = null;
+		String[] values = null;
+		PropertyFilter filter = null;
+		
+		if(filterParamMap != null){
 			outer: for (Map.Entry<String, Object> entry : filterParamMap.entrySet()) {
-				String filterName = entry.getKey();
-				Object filterValue = entry.getValue();
+				 filterName = entry.getKey();
+				 filterValue = entry.getValue();
 				
 				if (filterValue instanceof String) {
-					String value = (String) entry.getValue();
+					 value = (String) entry.getValue();
 					// 如果value值为空,则忽略此filter.
 					if (StringUtils.isNotBlank(value)) {
-						PropertyFilter filter = new PropertyFilter(filterName, value);
+						filter = new PropertyFilter(filterName, value);
 						filterList.add(filter);
 					}
 				} else if (filterValue instanceof String[]) {
-					String[] values = (String[]) entry.getValue();
-					for (String value : values) {
-						if (StringUtils.isBlank(value)) {
+					values = (String[]) entry.getValue();
+					for (String val : values) {
+						// 如果数组 中有一个是空值,则忽略此filter.
+						if (StringUtils.isBlank(val)) {
 							continue outer;
 						}
 					}
-					PropertyFilter filter = new PropertyFilter(filterName, values);
+					filter = new PropertyFilter(filterName, values);
 					filterList.add(filter);
 				}
 			}
 		}
 		return filterList;
 	}
+	
+	
+	
 	
 	public static List<PropertyFilter> buildFromHttpRequest(final HttpServletRequest request, final String filterPrefix) {
 		List<PropertyFilter> filterList = Lists.newArrayList();
@@ -150,8 +159,10 @@ public class PropertyFilter {
 		
 		//比较类型+属性值类型  LIKES
 		String firstPart = StringUtils.substringBefore(filterName, "_");
+		
 		//比较类型  LIKE
 		String matchTypeCode = StringUtils.substring(firstPart, 0, firstPart.length() - 1);
+		
 		//属性值类型 S
 		String propertyTypeCode = StringUtils.substring(firstPart, firstPart.length() - 1, firstPart.length());
 		
