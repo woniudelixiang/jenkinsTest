@@ -52,6 +52,7 @@ public interface BaseDao<T extends BaseEntity> {
 	List<T> findPage(Page page);
 	List<T> findPage(DetachedCriteria detachedCriteria, Page page);
 	List<T> findDatas(String propertyName, Object value, Page page);
+	List<T> findPage(Map<String, Object> map,Page page);  //根据map进行查询
 	List<T> findPage(final Page page, final List<PropertyFilter> filters);
 	
 	

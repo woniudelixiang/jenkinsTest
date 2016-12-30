@@ -22,7 +22,7 @@ public class EntityInterceptor extends EmptyInterceptor {
 	@Override
 	public boolean onFlushDirty(Object entity, Serializable id, Object[] currentState, Object[] previousState, String[] propertyNames,
 			Type[] types) {
-		System.out.println("(*****************  onFlushDirty   ************************");
+//		System.out.println("(*****************  onFlushDirty   ************************");
 		boolean modified = false;
 		if (entity instanceof BaseEntity) {
 			BaseEntity BaseEntity = (BaseEntity) entity;
@@ -54,7 +54,7 @@ public class EntityInterceptor extends EmptyInterceptor {
 	 */
 	@Override
 	public boolean onSave(Object entity, Serializable id, Object[] state, String[] propertyNames, Type[] types) {
-		System.out.println("(*****************  onSave   ************************");
+//		System.out.println("(*****************  onSave   ************************");
 		boolean modified = false;
 		//判断entity是否是BaseEntity类或者子类的对象
 		if (entity instanceof BaseEntity) {

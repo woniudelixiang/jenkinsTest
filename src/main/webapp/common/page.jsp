@@ -52,7 +52,7 @@
 	}
 </script>
 
-<c:if test="${page.totalPages > 0}">
+<%-- <c:if test="${page.totalPages > 0}"> --%>
 	<div class="search" style="/*margin: 10px 1px;*/ padding: 5px 0px;">
 		
 		<span style="margin-left: 5px;">
@@ -109,9 +109,9 @@
 	</div>
 	
 	<input id="pageSize" name="pageSize" value="${page.pageSize}" type="hidden" />
-	<input id="pageNum" name="pageNum" value="${page.pageNum}" type="hidden" />
+	<input id="pageNum" name="pageNum" value="${page.pageNum}" type="text" />
 	
-</c:if>
+<%-- </c:if> --%>
 
 
 <input id="order" name="order" value="${page.order}" type="hidden" />

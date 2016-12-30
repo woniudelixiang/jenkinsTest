@@ -17,6 +17,7 @@ import com.wqj.parameBinding.entity.Student;
 import com.wqj.parameBinding.entity.User;
 import com.wqj.parameBinding.entity.XML;
 import com.wqj.parameBinding.pojo.AnnotationFormatterBean;
+import com.wqj.parameBinding.pojo.LevelMapData;
 import com.wqj.parameBinding.pojo.UserListData;
 import com.wqj.parameBinding.pojo.UserMapData;
 import com.wqj.parameBinding.pojo.UserSetData;
@@ -110,6 +111,17 @@ public class ParameBindingController extends CommonController {
 	public String map(UserMapData userMapData) {
 		return userMapData.toString();
 	}
+	
+	// Map   http://localhost:8080/dao-study/parameBinding/map?userMap["contactInfo.phone"]=18351458870&userMap["contactInfo.address"]=ah
+	@RequestMapping("/levelMap")
+	@ResponseBody
+	public String levelMap(LevelMapData levelMapData) {
+		return levelMapData.toString();
+	}
+	
+	
+	
+	
 	
 	// JSON  
 	/* http://localhost:8080/dao-study/parameBinding/json

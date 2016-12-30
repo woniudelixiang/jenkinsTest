@@ -69,13 +69,50 @@ public class PropertyFilter {
 	 * 
 	 * eg. filter_EQS_name filter_LIKES_name_OR_email
 	 */
+	public static List<PropertyFilter> build(final Map<String, Object> filterParamMap) {
+		List<PropertyFilter> filterList = Lists.newArrayList();
+		// 分析参数Map,构造PropertyFilter列表
+		if(filterParamMap!=null){
+			outer: for (Map.Entry<String, Object> entry : filterParamMap.entrySet()) {
+				String filterName = entry.getKey();
+				Object filterValue = entry.getValue();
+				
+				if (filterValue instanceof String) {
+					String value = (String) entry.getValue();
+					// 如果value值为空,则忽略此filter.
+					if (StringUtils.isNotBlank(value)) {
+						PropertyFilter filter = new PropertyFilter(filterName, value);
+						filterList.add(filter);
+					}
+				} else if (filterValue instanceof String[]) {
+					String[] values = (String[]) entry.getValue();
+					for (String value : values) {
+						if (StringUtils.isBlank(value)) {
+							continue outer;
+						}
+					}
+					PropertyFilter filter = new PropertyFilter(filterName, values);
+					filterList.add(filter);
+				}
+			}
+		}
+		return filterList;
+	}
+	
 	public static List<PropertyFilter> buildFromHttpRequest(final HttpServletRequest request, final String filterPrefix) {
 		List<PropertyFilter> filterList = Lists.newArrayList();
 		Assert.notNull(request, "Request must not be null");
 		
 		// 从request中获取含属性前缀名的参数,构造去除前缀名后的参数Map.
 		Map<String, Object> filterParamMap = ServletUtils.getParametersStartingWith(request, filterPrefix + "_");
-
+//		for(Map.Entry<String, Object> entry : filterParamMap.entrySet()) {
+//			String filterName = entry.getKey();
+//			Object filterValue = entry.getValue();
+//			System.out.println("filterName:  " + filterName + "  filterValue: " + filterValue);
+//		}
+		
+		
+		
 		// 分析参数Map,构造PropertyFilter列表
 		outer: for (Map.Entry<String, Object> entry : filterParamMap.entrySet()) {
 			String filterName = entry.getKey();

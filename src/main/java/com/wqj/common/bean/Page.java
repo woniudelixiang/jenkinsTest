@@ -77,9 +77,10 @@ public class Page {
 	}
 
 	public int getPageNum() {
-		if (pageNum > totalPages) {
-			return totalPages;
-		}
+//		System.out.println("pageNum:  " + pageNum + "  totalPages: " + totalPages);
+//		if (pageNum > totalPages) {
+//			return totalPages;
+//		}
 		return pageNum;
 	}
 

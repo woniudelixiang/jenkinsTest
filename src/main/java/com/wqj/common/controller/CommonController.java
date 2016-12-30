@@ -4,6 +4,10 @@ import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
+import java.util.Arrays;
+import java.util.Enumeration;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -116,6 +120,22 @@ public abstract class CommonController {
 		}
 	}
 	
+	protected void extractParams(HttpServletRequest request) {
+		Enumeration<String> keys = request.getParameterNames();
+		while (keys.hasMoreElements()) {
+			String key = keys.nextElement();
+			String[] values = request.getParameterValues(key);
+			String paramName = key.replaceAll("\\.", "_");
+			if (values.length > 1) {
+				Arrays.sort(values);
+				request.setAttribute(paramName, values[0]);
+				request.setAttribute(paramName + "_", values[1]);
+			} else {
+				request.setAttribute(paramName, request.getParameter(key));
+			}
+		}
+	}
+
 	
 	@Autowired
 	public  UserService userService;

@@ -17,11 +17,7 @@ public class UserServiceImpl extends HibernateDaoSupport<User> implements UserSe
 
 	@Override
 	public List<User> getUserByUserName(String userName) throws Exception{
-		
-		int s = Integer.parseInt(userName);
-		
-		
+//		int s = Integer.parseInt(userName);
 		return null;
 	}
-
 }

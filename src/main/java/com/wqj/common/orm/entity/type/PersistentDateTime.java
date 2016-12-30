@@ -54,12 +54,12 @@ public class PersistentDateTime implements EnhancedUserType, Serializable {
 	@Override
 	public Object nullSafeGet(ResultSet resultSet, String[] strings, SessionImplementor sessionImplementor, Object object) throws HibernateException,
 			SQLException {
-		System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  1  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+//		System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  1  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 		return nullSafeGet(resultSet, strings[0], sessionImplementor);
 	}
 
 	public Object nullSafeGet(ResultSet resultSet, String string, SessionImplementor sessionImplementor) throws SQLException {
-		System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  2  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+//		System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  2  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 		Object timestamp = StandardBasicTypes.TIMESTAMP.nullSafeGet(resultSet, string, sessionImplementor);
 		if (timestamp == null) {
 			return null;
@@ -71,7 +71,7 @@ public class PersistentDateTime implements EnhancedUserType, Serializable {
 	@Override
 	public void nullSafeSet(PreparedStatement preparedStatement, Object value, int index, SessionImplementor sessionImplementor)
 			throws HibernateException, SQLException {
-		System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  3  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+//		System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  3  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 		if (value == null) {
 			StandardBasicTypes.TIMESTAMP.nullSafeSet(preparedStatement, null, index, sessionImplementor);
 		} else {

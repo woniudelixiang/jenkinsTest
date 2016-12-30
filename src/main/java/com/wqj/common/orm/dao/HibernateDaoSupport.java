@@ -8,7 +8,9 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
+import org.apache.commons.lang.StringUtils;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.CriteriaSpecification;
 import org.hibernate.criterion.Criterion;
@@ -41,6 +43,7 @@ import com.wqj.common.orm.entity.BaseEntity;
 import com.wqj.common.util.DateUtils;
 import com.wqj.common.util.LoggerUtils;
 import com.wqj.common.util.ReflectionUtils;
+import com.wqj.common.util.ValidateUtils;
 
 @SuppressWarnings("unused")
 public class HibernateDaoSupport<T extends BaseEntity> extends BaseDaoSupport<T> {
@@ -307,5 +310,22 @@ public class HibernateDaoSupport<T extends BaseEntity> extends BaseDaoSupport<T>
 			break;
 		}
 		return criterion;
+	}
+
+	@Override
+	public List<T> findPage(Map<String, Object> map, Page page) {
+		DetachedCriteria detachedCriteria = createDetachedCriteria();
+		Criteria criteria = detachedCriteria.getExecutableCriteria(getSession());
+		if(map!=null){
+			for (Entry<String, Object> entry : map.entrySet()) {
+				String propertyName = entry.getKey();
+				Object value = entry.getValue();
+				if(ValidateUtils.isNotEmpty(value)){
+					createAlias(criteria, propertyName);
+					addRestriction(criteria, propertyName, value);
+				}
+			}
+		}
+		return findPage(detachedCriteria, page);
 	}
 }

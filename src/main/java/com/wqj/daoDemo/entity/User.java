@@ -42,7 +42,7 @@ public class User extends BaseEntity{
 	}
 
 	public String getUsername() {
-		return "王"+username;
+		return username;
 	}
 
 	public void setUsername(String username) {
