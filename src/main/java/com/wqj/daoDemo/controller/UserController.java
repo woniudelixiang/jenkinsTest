@@ -89,8 +89,8 @@ public class UserController extends CommonController{
 		//Assert.notNull(criteria, "criteria is null.");
 		//Assert.hasText(propertyNames, "propertyNames is required.");
 		//构建PropertyFilter列表
-		List<PropertyFilter> filters = PropertyFilter.buildFromHttpRequest(request);
-		List<User> list = userService.findPage(page, filters);
+//		List<PropertyFilter> filters = PropertyFilter.buildFromHttpRequest(request);
+		List<User> list = null;//userService.findPage(page, filters);
 		
 		for(User user : list){
 			System.out.println(user.toString());

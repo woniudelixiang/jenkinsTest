@@ -10,8 +10,8 @@
 <title>第二个列表页</title>
 </head>
 <body>
-<a href="javascript:Dback('${ctx }/back/list')">返回</a>
-<form action="<c:url value='/back/forwardList'></c:url>" method="post" onsubmit="return sumbitTest();">
+<a href="javascript:Dback('validateForm', '${ctx }/back/list')">返回</a>
+<form action="<c:url value='/back/forwardList'></c:url>" method="post" onsubmit="return sumbitTest();" id="validateForm">
 	<jsp:include page="../forms/condition.jsp" >
 		<jsp:param value="0" name="type"/>
 	</jsp:include>

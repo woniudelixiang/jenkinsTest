@@ -128,6 +128,7 @@ public abstract class CommonController {
 			String paramName = key.replaceAll("\\.", "_");
 			if (values.length > 1) {
 				Arrays.sort(values);
+				System.out.println("paramName:" + paramName);
 				request.setAttribute(paramName, values[0]);
 				request.setAttribute(paramName + "_", values[1]);
 			} else {

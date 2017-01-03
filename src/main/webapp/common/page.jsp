@@ -1,55 +1,47 @@
 <%@ page language="java" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <script type="text/javascript">
+	
 	function paginationHandle(pageNum, pageSize){
-		if(!isNaN(pageNum)){
-			document.getElementById("pageNum").value = pageNum;
-		}
-		if(!isNaN(pageSize)){
-			document.getElementById("pageSize").value = pageSize;
+		if(doNumCheck(pageNum)){
+			$("#pageNum").val(pageNum);
 		}
 		
-		if(document.getElementById("validateForm")){
-			document.getElementById("validateForm").submit();
-			return false;
-		}else{
-			var currentUrl = window.location.href;
-			pageNum = document.getElementById("pageNum").value;
-			pageSize = document.getElementById("pageSize").value;
-			
-			if(currentUrl.indexOf("?") == -1){
-				window.location.href = currentUrl + "?pageNum="+pageNum+"&pageSize="+pageSize;
-			}else if(currentUrl.indexOf("pageSize=") == -1){
-				window.location.href = currentUrl + "&pageSize="+pageSize;
-			}else if(currentUrl.indexOf("pageNum=") == -1){
-				window.location.href = currentUrl + "&pageNum="+pageSize;
-			}else{
-				var url = currentUrl.substring(0, currentUrl.indexOf("&pageSize"));
-				window.location.href = (url + "&pageSize="+pageSize);
-			}
-			return false;
+		if(doNumCheck(pageSize)){
+			$("#pageSize").val(pageSize);
 		}
-		return true;
+		
+		var $validateForm = $("#validateForm");
+		if($validateForm){
+			$validateForm.submit();
+		}
 	}
 	
 	function jumpPage(){
-		var jumpPageValue = document.getElementById("jumpPageValue").value;
-		if(isNaN(parseInt(jumpPageValue))){
-			alert('请输入一个整数值');
+		var jumpPageValue = $("#jumpPageValue").val();
+		if(!doNumCheck(jumpPageValue)){
+			alert('请输入一个整数');
 			return;
 		}
-
+		
 		var totals = "${page.totalPages}";
 		if(parseInt(jumpPageValue) > parseInt(totals)){
 			alert('你所要跳转的页数不存在');
 			return;
 		}
-		document.getElementById("pageNum").value = jumpPageValue;
-		if(document.getElementById("validateForm")){
-			document.getElementById("validateForm").submit();
-			return false;
+		
+		$("#pageNum").val(jumpPageValue);
+		var $validateForm = $("#validateForm");
+		if($validateForm){
+			$validateForm.submit();
 		}
 	}
+	
+	function doNumCheck(num) {
+		var regs = /^[0-9]+$/;
+		return regs.test(num);
+	};
+	
 </script>
 
 <%-- <c:if test="${page.totalPages > 0}"> --%>
@@ -76,22 +68,23 @@
 				<c:if test="${page.pageNum == 1}">
 					[<span>首页</span> |
 					<span>上一页</span> |
-					<a href="${pageContext.request.contextPath}/${param.actionURL}?pageNum=${page.pageNum+1}${param.param}" onclick='return paginationHandle("${page.pageNum+1}");'>下一页</a> |
-					<a href="${pageContext.request.contextPath}/${param.actionURL}?pageNum=${page.totalPages}${param.param}" onclick='return paginationHandle("${page.totalPages}");'>末页</a>]
+					<a onclick='return paginationHandle("${page.pageNum+1}");' style="cursor: pointer;">下一页</a> |
+					<a onclick='return paginationHandle("${page.totalPages}");' style="cursor: pointer;">末页</a>]
 				</c:if>
 				<c:if test="${page.pageNum > 1 and page.pageNum < page.totalPages}">
-					[<a href="${pageContext.request.contextPath}/${param.actionURL}?pageNum=1${param.param}" onclick='return paginationHandle("${a}1");'>首页</a> |
-					<a href="${pageContext.request.contextPath}/${param.actionURL}?pageNum=${page.pageNum-1}${param.param}" onclick='return paginationHandle("${page.pageNum-1}");'>上一页</a> |
-					<a href="${pageContext.request.contextPath}/${param.actionURL}?pageNum=${page.pageNum+1}${param.param}" onclick='return paginationHandle("${page.pageNum+1}");'>下一页</a> |
-					<a href="${pageContext.request.contextPath}/${param.actionURL}?pageNum=${page.totalPages}${param.param}" onclick='return paginationHandle("${page.totalPages}");'>末页</a>]
+					[<a style="cursor: pointer;" onclick='return paginationHandle("${a}1");'>首页</a> |
+					<a style="cursor: pointer;" onclick='return paginationHandle("${page.pageNum-1}");'>上一页</a> |
+					<a style="cursor: pointer;" onclick='return paginationHandle("${page.pageNum+1}");'>下一页</a> |
+					<a style="cursor: pointer;" onclick='return paginationHandle("${page.totalPages}");'>末页</a>]
 				</c:if>
 				<c:if test="${page.pageNum == page.totalPages}">
-					[<a href="${pageContext.request.contextPath}/${param.actionURL}?pageNum=1${param.param}" onclick='return paginationHandle("${a}1");'>首页</a> |
-					<a href="${pageContext.request.contextPath}/${param.actionURL}?pageNum=${page.pageNum-1}${param.param}" onclick='return paginationHandle("${page.pageNum-1}");'>上一页</a> |
+					[<a style="cursor: pointer;" onclick='return paginationHandle("${a}1");'>首页</a> |
+					<a style="cursor: pointer;" onclick='return paginationHandle("${page.pageNum-1}");'>上一页</a> |
 					<span>下一页</span> |
 					<span>末页</span>]
 				</c:if>	
 			</c:if>
+			
 			<c:if test="${page.totalPages == 1}">
 				[<span>首页</span> |
 				<span>上一页</span> |
@@ -110,6 +103,7 @@
 	
 	<input id="pageSize" name="pageSize" value="${page.pageSize}" type="hidden" />
 	<input id="pageNum" name="pageNum" value="${page.pageNum}" type="text" />
+	<input id="totalCount" name="totalCount" value="${page.totalCount}" type="text" />
 	
 <%-- </c:if> --%>
 

@@ -18,7 +18,7 @@ public class JSONHelper {
 	public static String toJson(Object jsonElement) {
 		Gson gson = getGsonBuilder().create();
 	    String jsonStr = gson.toJson(jsonElement);
-	    System.out.println("jsonStr: " + jsonStr);
+//	    System.out.println("jsonStr: " + jsonStr);
 	    return jsonStr;  
 	}
 	

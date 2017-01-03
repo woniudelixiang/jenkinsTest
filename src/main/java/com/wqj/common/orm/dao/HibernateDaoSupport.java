@@ -1,22 +1,15 @@
 package com.wqj.common.orm.dao;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import org.apache.commons.lang.StringUtils;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.CriteriaSpecification;
 import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Disjunction;
-import org.hibernate.criterion.Example;
 import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Projection;
@@ -24,28 +17,18 @@ import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 import org.hibernate.internal.CriteriaImpl;
 import org.hibernate.internal.CriteriaImpl.OrderEntry;
-import org.hibernate.jdbc.ReturningWork;
 import org.hibernate.transform.ResultTransformer;
 import org.springframework.util.Assert;
 
 import com.google.common.collect.Lists;
-import com.google.common.collect.Maps;
-import com.wqj.common.Const;
 import com.wqj.common.bean.Page;
-import com.wqj.common.controller.Common2DimensionCond;
-import com.wqj.common.controller.Common2DimensionStatis;
-import com.wqj.common.controller.CommonTimelineCond;
-import com.wqj.common.controller.CommonTimelineStatis;
-import com.wqj.common.controller.SimpleStatisObject;
 import com.wqj.common.orm.PropertyFilter;
 import com.wqj.common.orm.PropertyFilter.MatchType;
 import com.wqj.common.orm.entity.BaseEntity;
-import com.wqj.common.util.DateUtils;
 import com.wqj.common.util.LoggerUtils;
 import com.wqj.common.util.ReflectionUtils;
 import com.wqj.common.util.ValidateUtils;
 
-@SuppressWarnings("unused")
 public class HibernateDaoSupport<T extends BaseEntity> extends BaseDaoSupport<T> {
 
 	@Override
@@ -298,6 +281,14 @@ public class HibernateDaoSupport<T extends BaseEntity> extends BaseDaoSupport<T>
 				if (values.size() == 2) {
 					criterion = Restrictions.between(propertyName, values.get(0), values.get(1));
 				}
+			}else if (propertyValue instanceof Long[]) {
+				Long[] values = (Long[]) propertyValue;
+				if (values.length == 2) {
+					criterion = Restrictions.between(propertyName, values[0], values[1]);
+				}
+			}
+			else{
+				System.out.println("------------------BA-------else------------------------------");
 			}
 			break;
 		case IN:
