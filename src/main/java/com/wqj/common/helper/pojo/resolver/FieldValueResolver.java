@@ -2,6 +2,13 @@ package com.wqj.common.helper.pojo.resolver;
 
 import java.lang.reflect.Field;
 
+/**
+ * https://yq.aliyun.com/articles/38956    //思想来源于SpringMVC参数解析
+ * @author Qijun wang
+ * @email wqjjob@126.com
+ * @date 2017年1月4日 下午5:53:26
+ */
+
 public interface FieldValueResolver {
 
 	 /**
