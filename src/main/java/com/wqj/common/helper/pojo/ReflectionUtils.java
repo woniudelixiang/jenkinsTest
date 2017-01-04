@@ -6,7 +6,6 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
-import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -25,6 +24,10 @@ import org.springframework.util.Assert;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.gson.Gson;
+import com.wqj.common.helper.pojo.resolver.FieldValueResolver;
+import com.wqj.common.helper.pojo.resolver.impl.ListFieldValueResolver;
+import com.wqj.common.helper.pojo.resolver.impl.MapFieldValueResolver;
+import com.wqj.common.helper.pojo.resolver.impl.ModelAttributeFillProcessor;
 import com.wqj.common.util.DateUtils;
 import com.wqj.common.util.LoggerUtils;
 import com.wqj.common.util.ValidateUtils;
@@ -35,36 +38,41 @@ import com.wqj.common.util.ValidateUtils;
  */
 public class ReflectionUtils {
 	private static final String CLASS_NAME = ReflectionUtils.class.getName();
-
+	
 	//属性集合缓存
-	private static final Map<String,Map<String, Field>> fields_map_cache = Maps.newHashMap();
-
+	private static final Map<String,Map<String, Field>> FIELDS_MAP_CACHE = Maps.newHashMap();
 	//属性缓存
-	private static final Map<String,Field> field_map_cache = Maps.newHashMap();
-	
-	private static final Map<String,Method> clazz_method_map_cache = Maps.newHashMap();
-
+	private static final Map<String,Field> FIELD_MAP_CACHE = Maps.newHashMap();
+	// 
+	private static final Map<String,Method> CLAZZ_METHOD_MAP_CACHE = Maps.newHashMap();
 	//类集合
-	private static final Map<String,Class<?>> clazz_map_cache = Maps.newHashMap();
-	
-	private static int autoGrowCollectionLimit = Integer.MAX_VALUE;
-
-	private static final String separator = "\\.";
-	
+	private static final Map<String,Class<?>> CLAZZ_MAP_CACHE = Maps.newHashMap();
+	// 
+	private static final String SEPARATOR = "\\.";
+	// 
 	private static final String TYPE_NAME_PREFIX = "class ";
 	
+	// 注册所有的解析器
+	private static final List<FieldValueResolver> resolvers = new ArrayList<FieldValueResolver>();
 	
 	static{
 		ConvertUtils.register(new Converter(){
 			@Override
 			public Object convert(@SuppressWarnings("rawtypes") Class arg0, Object arg1) {
-				if(ValidateUtils.isEmpty(arg1) ||arg1.getClass().getName().equals(DateTime.class.getName())){
+				if(ValidateUtils.isEmpty(arg1) || arg1.getClass().getName().equals(DateTime.class.getName())){
 					return arg1;
 				}
 				SimpleDateFormat sdf = new  SimpleDateFormat(DateUtils.PATTERN_DATETIME);
 				return DateUtils.toDateTime(sdf.format(arg1));
 			}
 		}, DateTime.class);
+		
+		ListFieldValueResolver listResolver = new ListFieldValueResolver();
+		resolvers.add(listResolver);
+		MapFieldValueResolver mapResolver = new MapFieldValueResolver();
+		resolvers.add(mapResolver);
+		ModelAttributeFillProcessor allResolver = new ModelAttributeFillProcessor(true);
+		resolvers.add(allResolver);
 	}
 
 	/**
@@ -102,7 +110,7 @@ public class ReflectionUtils {
 				// 设置可以访问
 				field.setAccessible(true);
 				return field;
-			} catch (NoSuchFieldException e) {// NOSONAR
+			} catch (NoSuchFieldException e) {
 				// 当前类未定义,继续向上找
 			}
 		}
@@ -124,176 +132,120 @@ public class ReflectionUtils {
 			LoggerUtils.error(CLASS_NAME, "setFieldValue[{}]", e);
 		}
 	}
-	
 
 	/**
-	 *  map 内数据 填充到  实体（自动新建实体）
-	 * @author LE CHEN
+	 * 将map中的数据 填充到  实体（自动新建实体）,支持多级属性，多级属性使用"."
 	 * @param map 
 	 * @param clazz 被赋值的实体Class
 	 * @return
-	 * 如果 实体内包括实体 请以 '实体内 类属性名称.类属性内的字段名称' 
 	 */
-	public static  <T> T fillClassForMap(Map<String,Object> map,Class<T> clazz) {
-
-
+	public static <T>T fillClassForMap(Map<String,Object> map, Class<T> clazz) {
 		T t = null;
-
 		try {
-
 			t = clazz.newInstance();
-
 			fillClassForMap(map, t);
-
 		} catch (Exception e) {
 			e.printStackTrace();
 		} 
-
 		return t;
 	}
 
-
 	/**
-	 * 
-	 * 将 map 中 value 填充到 对象 t 中 （手动传入实体）
-	 * 
+	 * 将map中的数据 填充到  实体（自动新建实体）,支持多级属性，多级属性使用"."
 	 * @param map 值map
 	 * @param t 被填充对象
 	 * @return
 	 */
-	public static  <T> T fillClassForMap(Map<String,Object> map,T t) {
-
+	public static <T>T fillClassForMap(Map<String,Object> map, T t) {
 		try {
-
 			for(String key : map.keySet()){
-
-				//接收value 属性 value值
-				Object obj_value = map.get(key); // sql字段值
-
-				String[] clazz_field_array = key.split(separator);
-
-				//递归 赋值（ref 变量特性）
-				fillLoop(clazz_field_array, t, 0, obj_value);
-
+				// map中的key
+				String[] keyArray = key.split(SEPARATOR);
+				//当前key对应的value
+				Object value = map.get(key);
+				//递归 填充属性
+				fillLoop(keyArray, t, 0, value);
 			}
-
 		} catch (Exception e) {
 			e.printStackTrace();
 		} 
-
 		return t;
 	}
-
-
-
+	
 	/**
 	 * 
-	 * @param clazz_field_array 变量数组
-	 * @param obj 对象
-	 * @param array_index 数组下标
-	 * @param o_value  最终值
+	 * @param keyArray 变量数组
+	 * @param obj 被填充的对象
+	 * @param position 数组下标
+	 * @param value  需要填充的最终值
 	 * @return
 	 * @throws Exception
 	 */
-	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public static   Object  fillLoop(String[] clazz_field_array,Object obj,int array_index,Object o_value) throws Exception {
-
-		String obj_class_name = obj.getClass().getName();
-		if(array_index  == clazz_field_array.length-1){
-
-			Field clazz_field = ReflectionUtils.field_map_cache.get(obj_class_name+"_"+clazz_field_array[array_index]);
-			if(clazz_field == null){
-				clazz_field = getAccessibleField(obj, clazz_field_array[array_index]); //获取 类 属性内的 属性
-				ReflectionUtils.field_map_cache.put(obj_class_name+"_"+clazz_field_array[array_index], clazz_field); //save field to cache
+	public static Object fillLoop(String[] keyArray, Object obj, int position, Object value) throws Exception {
+		System.out.println("递归了： "+new Gson().toJson(obj));
+		
+		// 被填充的对象的className
+		String objClassName = obj.getClass().getName();
+		
+		// 已经递归到最底层了
+		if(position == keyArray.length-1){
+			Field field = ReflectionUtils.FIELD_MAP_CACHE.get(objClassName+"_"+keyArray[position]);
+			if(field == null){
+				field = getAccessibleField(obj, keyArray[position]); //获取 类 属性内的 属性
+				ReflectionUtils.FIELD_MAP_CACHE.put(objClassName+"_"+keyArray[position], field); //save field to cache
 			}
-
-			if(clazz_field == null){
-				LoggerUtils.info(CLASS_NAME, "------------------"+obj_class_name+" 未找到  '"+clazz_field_array[array_index]+"' 属性--------------");
-				//				throw new Exception("====== "+clazz_field_array[array_index]+" 未找到========");
+			if(field == null){
+				LoggerUtils.info(CLASS_NAME, "在" + objClassName + " 中未找到  '" + keyArray[position] + "' 属性");
 				return obj;
 			}
-			Object value = valueManage(o_value,clazz_field.getType()); //格式化
-
-			BeanUtils.setProperty(obj, clazz_field.getName(), value); //给 属性 赋值
+			
+			// 给属性赋值
+			BeanUtils.setProperty(obj, field.getName(), convertValue(value,field.getType())); 
 			return obj;
 		}
-
-		Map<String, Field> field_map = fields_map_cache.get(obj_class_name);
 		
-		if(field_map == null){
-			field_map = getAllFieldsMap(obj);
-			fields_map_cache.put(obj_class_name, field_map);
-		}
-		String clazz_field_name = clazz_field_array[array_index];
+		//================================== 以下是多级属性的情况 =====================================================
+		Map<String, Field> fieldMap = FIELDS_MAP_CACHE.get(objClassName);
 		
-		String a_key = "";
-		int clazz_field_name_index = clazz_field_name.lastIndexOf("[");
-		if(clazz_field_name_index >= 0){
-			clazz_field_name = clazz_field_name.substring(0, clazz_field_name_index);
-			a_key = clazz_field_array[array_index].substring(clazz_field_name_index+1, clazz_field_array[array_index].lastIndexOf("]"));
+		if(fieldMap == null){
+			fieldMap = getAllFieldsMap(obj);
+			FIELDS_MAP_CACHE.put(objClassName, fieldMap);
 		}
-		Field field = field_map.get(clazz_field_name);
-
-		if( field  != null ){
-
-			Object obj_value = field.get(obj); //获取此类变量值 (直接获取跳过 get 方法) 
-
-			if(obj_value == null){
-				obj_value = newValue(field.getType());
-			}
-			if(obj_value instanceof List){
-				
-				int index = Integer.parseInt(a_key);
-				
-				Type type = field.getGenericType();
-				List<String> listParameterizedTypeStrArray = getListParameterizedTypeStrArray(type);
-				
-				List list = (List)obj_value;
-				
-				int size = list.size();
-				Object oldValue = null;
-				if ( index < size) {
-					oldValue = list.get(index);
-				}
-				
-				if(oldValue == null){
-					oldValue = newInstance(listParameterizedTypeStrArray.get(0));
-				}
-				
-				oldValue = fillLoop( clazz_field_array, oldValue,++array_index,o_value);
-				
-				if (index >= size && index < autoGrowCollectionLimit) {
-					for (int i = size; i < index; i++) {
-							list.add(null);
-					}
-					list.add(oldValue);
-				}else {
-					list.set(index, oldValue);
-				}
-			}else if(obj_value instanceof Map){
-				
-				Type type = field.getGenericType();
-				List<String> listParameterizedTypeStrArray = getListParameterizedTypeStrArray(type);
-				Map map = (Map)obj_value;
-				Object oldValue = map.get(a_key);
-				if(ValidateUtils.isEmpty(oldValue)){
-					oldValue = newInstance(listParameterizedTypeStrArray.get(1));
-				}
-				oldValue = fillLoop( clazz_field_array, oldValue,++array_index,o_value);
-				map.put(a_key, oldValue);
-				
-			}
-			else{
-				obj_value = fillLoop( clazz_field_array, obj_value,++array_index,o_value);
-			}
-
-			Object value = valueManage(obj_value,field.getType()); //
-
-			BeanUtils.setProperty(obj, field.getName(), value); //
+		
+		// 当前处理的属性名称
+		String positionKey = keyArray[position];
+		// 方括号中间指定的下标
+		String positionKeyIndex = "";
+		// 方括号左边的位置
+		int bracketsLeftIndex = positionKey.lastIndexOf("[");
+		if(bracketsLeftIndex >= 0){
+			positionKey = positionKey.substring(0, bracketsLeftIndex);
+			// 方括号左边的位置
+			int bracketsRightIndex = keyArray[position].lastIndexOf("]");
+			positionKeyIndex = keyArray[position].substring(bracketsLeftIndex+1, bracketsRightIndex);
 		}
+		
+		// 获取当前处理属性的field
+		Field field = fieldMap.get(positionKey);
+		if(field == null){
+			return obj;
+		}
+		
+		// 当前处理属性的值
+		Object fieldValue = field.get(obj); //获取此类变量值 (直接获取跳过 get 方法) 
 
+		// 如果当前属性的值为null，则创建一个新对象作为当前属性的值
+		if(fieldValue == null){
+			fieldValue = newValue(field.getType());
+		}
+		
+		for (FieldValueResolver resolver : resolvers) {
+			if(resolver.isSupport(fieldValue.getClass())){
+				resolver.fieldValueResolver(keyArray, obj, position, value, positionKeyIndex, field, fieldValue);
+				break;
+			}
+		}
 		return obj;
-
 	}
 	
 	
@@ -331,20 +283,39 @@ public class ReflectionUtils {
 	
 
 	public static void main(String[] args) {
+		// 如果没有注解的参数的类型不是简单类型而是复合类型，就是用类ModelAttributeMethodProcessor来解析：
+		
+		
+		// 判断是否是简单类型的
+//		boolean simpleProperty = org.springframework.beans.BeanUtils.isSimpleProperty(String.class);
+//		System.out.println(simpleProperty);
+//		String [] staff = new String[100];
+//		boolean primitiveOrWrapper = ClassUtils.isPrimitiveOrWrapper(Integer.class);
+//		System.out.println("primitiveOrWrapper:  " + primitiveOrWrapper);
+		//isPrimitiveOrWrapper方法是判断参数类型是否是基本类或基本类的包装类 
+		
+		
+		
+//		System.out.println("=======>>>>>>>>   " + staff.getClass().getComponentType());
+		// 也就是返回你数组里面装的数据的数据类型的类名称。
+		
+		
+		
+		
 			Map<String,Object> map = Maps.newHashMap();
-			map.put("id", 12);
+//			map.put("id", 12);
 			
 //			map.put("name", "123");
 //			map.put("subject.subjectName", "56565");
 //			map.put("subject.id", 56);
 //			map.put("dateTime", new Timestamp(1483428382668L));
-//			map.put("subjects[0].id", 0);
+			map.put("subjects[0].id", 0);
 //			map.put("subjects[0].subjectName", "0:name");
 //			
-//			map.put("subjects[2].id", 2);
+			map.put("subjects[2].id", 2);
 //			map.put("subjects[2].subjectName", "2:name");
 //			
-//			map.put("subjects[1].id", 1);
+			map.put("subjects[1].id", 1);
 //			map.put("subjects[1].subjectName", "1:name");
 			
 			long start = System.currentTimeMillis();
@@ -361,10 +332,10 @@ public class ReflectionUtils {
 		for(Class<?> argclazz : classes){
 			sb.append(argclazz.getSimpleName()+"_");
 		}
-		Method method = clazz_method_map_cache.get(clazz.getName()+"_"+methodName+"_"+sb.toString());
+		Method method = CLAZZ_METHOD_MAP_CACHE.get(clazz.getName()+"_"+methodName+"_"+sb.toString());
 		if(method == null){
 			 method = clazz.getDeclaredMethod(methodName,classes);
-			 clazz_method_map_cache.put(clazz.getName()+"_"+methodName+"_"+sb.toString(), method);
+			 CLAZZ_METHOD_MAP_CACHE.put(clazz.getName()+"_"+methodName+"_"+sb.toString(), method);
 		}
 		if(method != null){
 			method.setAccessible(true);
@@ -381,11 +352,11 @@ public class ReflectionUtils {
 	
 	//创建实例
 	public static Object newInstance(String className) throws ClassNotFoundException, InstantiationException, IllegalAccessException{
-		Class<?> fieldClazz = clazz_map_cache.get(className);
+		Class<?> fieldClazz = CLAZZ_MAP_CACHE.get(className);
 
 		if( fieldClazz == null){
 			fieldClazz = Class.forName(className);
-			clazz_map_cache.put(className, fieldClazz); //装载缓存
+			CLAZZ_MAP_CACHE.put(className, fieldClazz); //装载缓存
 		}
 
 		return 	fieldClazz.newInstance();
@@ -458,11 +429,8 @@ public class ReflectionUtils {
 	 * 
 	 * The type conversion!
 	 */
-	public static Object valueManage(Object value,Class<?> typeClass) {
-
-		ConvertUtilsBean convertUtils = new ConvertUtilsBean();
-		value =convertUtils.convert(value,typeClass);
-		return value;
+	public static Object convertValue(Object value,Class<?> typeClass) {
+		return new ConvertUtilsBean().convert(value,typeClass);
 	}
 
 	/**
@@ -531,7 +499,7 @@ public class ReflectionUtils {
 			Field.setAccessible(fields, true);
 			for(Field field : fields){
 				clazzMaps.put(field.getName(), field); //save field to map
-				field_map_cache.put(clazzName+"_"+field.getName(), field); //save field to cache
+				FIELD_MAP_CACHE.put(clazzName+"_"+field.getName(), field); //save field to cache
 			}
 		}
 
