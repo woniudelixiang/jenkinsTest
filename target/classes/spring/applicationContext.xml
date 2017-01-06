@@ -196,4 +196,9 @@
 <!-- 			<value>6379</value> -->
 <!-- 		</constructor-arg> -->
 <!-- 	</bean> -->
+
+<bean id="SpringContextUtil" class="com.wqj.common.helper.pojo.SpringContextUtil" />  
+
+
+
 </beans>

@@ -6,11 +6,13 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.beanutils.BeanUtils;
+import org.springframework.stereotype.Service;
 
 import com.wqj.common.helper.pojo.ReflectionUtils;
 import com.wqj.common.helper.pojo.resolver.FieldValueResolver;
 import com.wqj.common.util.ValidateUtils;
 
+@Service("mapFieldValueResolver")
 public class MapFieldValueResolver implements FieldValueResolver{
 	
 	@Override

@@ -24,10 +24,8 @@ import org.springframework.util.Assert;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.gson.Gson;
+import com.wqj.common.helper.FieldValueResolverUtil;
 import com.wqj.common.helper.pojo.resolver.FieldValueResolver;
-import com.wqj.common.helper.pojo.resolver.impl.ListFieldValueResolver;
-import com.wqj.common.helper.pojo.resolver.impl.MapFieldValueResolver;
-import com.wqj.common.helper.pojo.resolver.impl.ModelAttributeFillProcessor;
 import com.wqj.common.util.DateUtils;
 import com.wqj.common.util.LoggerUtils;
 import com.wqj.common.util.ValidateUtils;
@@ -52,8 +50,8 @@ public class ReflectionUtils {
 	// 
 	private static final String TYPE_NAME_PREFIX = "class ";
 	
-	// 注册所有的解析器
-	private static final List<FieldValueResolver> resolvers = new ArrayList<FieldValueResolver>();
+	// 所有的解析器
+	private static final List<FieldValueResolver> resolvers ;
 	
 	static{
 		ConvertUtils.register(new Converter(){
@@ -67,12 +65,9 @@ public class ReflectionUtils {
 			}
 		}, DateTime.class);
 		
-		ListFieldValueResolver listResolver = new ListFieldValueResolver();
-		resolvers.add(listResolver);
-		MapFieldValueResolver mapResolver = new MapFieldValueResolver();
-		resolvers.add(mapResolver);
-		ModelAttributeFillProcessor allResolver = new ModelAttributeFillProcessor(true);
-		resolvers.add(allResolver);
+		// 获取所有的解析器
+		resolvers = FieldValueResolverUtil.getResolvers();
+		
 	}
 
 	/**
@@ -247,9 +242,6 @@ public class ReflectionUtils {
 		}
 		return obj;
 	}
-	
-	
-	
 	
 	private static Object newValue(Class<?> type) {
 		try {

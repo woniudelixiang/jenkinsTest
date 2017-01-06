@@ -5,10 +5,12 @@ import java.lang.reflect.Type;
 import java.util.List;
 
 import org.apache.commons.beanutils.BeanUtils;
+import org.springframework.stereotype.Service;
 
 import com.wqj.common.helper.pojo.ReflectionUtils;
 import com.wqj.common.helper.pojo.resolver.FieldValueResolver;
 
+@Service("listFieldValueResolver")
 public class ListFieldValueResolver implements FieldValueResolver{
 
 	private static int AUTOGROWCOLLECTIONLIMIT = Integer.MAX_VALUE;
