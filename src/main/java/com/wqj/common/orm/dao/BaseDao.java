@@ -30,6 +30,7 @@ public interface BaseDao<T extends BaseEntity> {
 	
 	//根据对象更新
 	void update(T entity);
+	void merge(T entity);
 	void saveOrUpdate(T entity);
 //=========================================查===================================================	
 	

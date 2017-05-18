@@ -17,4 +17,12 @@ public class ConditionData {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("ConditionData [name=");
+		builder.append(name);
+		builder.append("]");
+		return builder.toString();
+	}
 }

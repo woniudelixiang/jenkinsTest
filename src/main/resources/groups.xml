@@ -19,8 +19,10 @@
 	<!-- hibernate-validate 配置 -->
 	<import resource="classpath:hibernateValidation/validator.xml" />
 	
-	<!-- hibernate-validate 配置 -->
+	<!-- spring-cache 配置 -->
 	<import resource="classpath:spring/ehcache/spring-cache.xml" />
 	
+	<!-- redisCluster 配置 -->
+	<import resource="classpath:redis/redis.xml" />
 	
 </beans>

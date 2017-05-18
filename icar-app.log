@@ -1,0 +1,630 @@
+[INFO][2017-04-01 12:57:59,267][org.hibernate.annotations.common.Version]HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+[INFO][2017-04-01 12:57:59,272][org.hibernate.Version]HHH000412: Hibernate Core {4.1.3.Final}
+[INFO][2017-04-01 12:57:59,275][org.hibernate.cfg.Environment]HHH000206: hibernate.properties not found
+[INFO][2017-04-01 12:57:59,276][org.hibernate.cfg.Environment]HHH000021: Bytecode provider name : javassist
+[INFO][2017-04-01 12:57:59,926][org.hibernate.dialect.Dialect]HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+[INFO][2017-04-01 12:57:59,945][org.hibernate.engine.jdbc.internal.LobCreatorBuilder]HHH000423: Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+[INFO][2017-04-01 12:57:59,957][org.hibernate.engine.transaction.internal.TransactionFactoryInitiator]HHH000399: Using default transaction strategy (direct JDBC transactions)
+[INFO][2017-04-01 12:57:59,963][org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory]HHH000397: Using ASTQueryTranslatorFactory
+[INFO][2017-04-01 12:58:00,067][org.hibernate.validator.internal.util.Version]HV000001: Hibernate Validator 5.2.4.Final
+[INFO][2017-04-01 12:58:00,843][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000228: Running hbm2ddl schema update
+[INFO][2017-04-01 12:58:00,844][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000102: Fetching database metadata
+[INFO][2017-04-01 12:58:00,845][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000396: Updating schema
+[INFO][2017-04-01 12:58:00,861][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.bigstudent
+[INFO][2017-04-01 12:58:00,861][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, b_name, bs_id, student_id, createdate, createdatetime, lastmodifydate]
+[INFO][2017-04-01 12:58:00,861][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [fk12fefd1b6decc693]
+[INFO][2017-04-01 12:58:00,861][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary, fk12fefd1b6decc693]
+[INFO][2017-04-01 12:58:00,893][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.bootstrap_ace_menu
+[INFO][2017-04-01 12:58:00,893][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, id, icon, text, createdate, createdatetime, lastmodifydate, url, parent_id]
+[INFO][2017-04-01 12:58:00,894][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [fk8997ee4cfa925641]
+[INFO][2017-04-01 12:58:00,894][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [fk8997ee4cfa925641, primary]
+[INFO][2017-04-01 12:58:00,902][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.fornow_base_language
+[INFO][2017-04-01 12:58:00,902][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, language_id, createdate, createdatetime, language_name, lastmodifydate]
+[INFO][2017-04-01 12:58:00,902][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2017-04-01 12:58:00,902][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2017-04-01 12:58:00,907][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.fornow_class_type
+[INFO][2017-04-01 12:58:00,907][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, class_type_id, createdate, createdatetime, class_name, lastmodifydate]
+[INFO][2017-04-01 12:58:00,907][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2017-04-01 12:58:00,907][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2017-04-01 12:58:00,914][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.fornow_students
+[INFO][2017-04-01 12:58:00,914][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, name, createdate, student_id, user_id, createdatetime, lastmodifydate]
+[INFO][2017-04-01 12:58:00,914][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [fkd3c8c42a44d2e124]
+[INFO][2017-04-01 12:58:00,914][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary, fkd3c8c42a44d2e124]
+[INFO][2017-04-01 12:58:00,919][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.fornow_user
+[INFO][2017-04-01 12:58:00,919][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, username, createdate, createdatetime, user_id, lastmodifydate]
+[INFO][2017-04-01 12:58:00,919][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2017-04-01 12:58:00,919][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2017-04-01 12:58:00,924][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.images
+[INFO][2017-04-01 12:58:00,924][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, id, cover, name, createdate, newfilename, user_id, createdatetime, lastmodifydate, size]
+[INFO][2017-04-01 12:58:00,924][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [fkb95a8278691c2c7a]
+[INFO][2017-04-01 12:58:00,925][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary, fkb95a8278691c2c7a]
+[INFO][2017-04-01 12:58:00,934][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.img_user
+[INFO][2017-04-01 12:58:00,934][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, username, createdate, createdatetime, user_id, password, lastmodifydate]
+[INFO][2017-04-01 12:58:00,935][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2017-04-01 12:58:00,935][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2017-04-01 12:58:00,941][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.maxstudent
+[INFO][2017-04-01 12:58:00,942][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, bsid, createdate, ms_id, m_name, createdatetime, lastmodifydate]
+[INFO][2017-04-01 12:58:00,942][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [fkd5f75c3788da5cee]
+[INFO][2017-04-01 12:58:00,942][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary, fkd5f75c3788da5cee]
+[INFO][2017-04-01 12:58:00,947][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.prize
+[INFO][2017-04-01 12:58:00,947][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, id, name, createdate, probability, createdatetime, lastmodifydate]
+[INFO][2017-04-01 12:58:00,947][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2017-04-01 12:58:00,947][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2017-04-01 12:58:00,953][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.student
+[INFO][2017-04-01 12:58:00,953][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, nickname, createdate, student_id, user_id, createdatetime, lastmodifydate]
+[INFO][2017-04-01 12:58:00,953][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [fk8ffe823b9fc2b9c1]
+[INFO][2017-04-01 12:58:00,953][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [fk8ffe823b9fc2b9c1, primary]
+[INFO][2017-04-01 12:58:00,959][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.super_appointment
+[INFO][2017-04-01 12:58:00,959][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, student_id, createdate, createdatetime, appt_id, lastmodifydate]
+[INFO][2017-04-01 12:58:00,959][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [fk79d2c8dbe7a6ab0a]
+[INFO][2017-04-01 12:58:00,959][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary, fk79d2c8dbe7a6ab0a]
+[INFO][2017-04-01 12:58:00,967][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.super_appt_class
+[INFO][2017-04-01 12:58:00,967][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, class_id, appt_class_id, createdate, appt_id, createdatetime, lastmodifydate]
+[INFO][2017-04-01 12:58:00,967][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [fk7edeeff062603dac, fk7edeeff090020def]
+[INFO][2017-04-01 12:58:00,967][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [fk7edeeff062603dac, fk7edeeff090020def, primary]
+[INFO][2017-04-01 12:58:00,973][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.sys_menu
+[INFO][2017-04-01 12:58:00,973][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, id, action, createdate, parentid, label, createdatetime, ordervalue, leaf, expanded, lastmodifydate]
+[INFO][2017-04-01 12:58:00,973][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [fk74a44791145f6e0]
+[INFO][2017-04-01 12:58:00,973][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary, fk74a44791145f6e0]
+[INFO][2017-04-01 12:58:01,011][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.sys_permission
+[INFO][2017-04-01 12:58:01,011][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, permission_id, permission_name, createdate, createdatetime, permission_description, permission_parent_id, lastmodifydate]
+[INFO][2017-04-01 12:58:01,011][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [fkc9610a81685bbb72]
+[INFO][2017-04-01 12:58:01,011][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary, fkc9610a81685bbb72]
+[INFO][2017-04-01 12:58:01,033][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.sys_role
+[INFO][2017-04-01 12:58:01,033][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, role_description, role_id, createdate, createdatetime, role_parent_id, role_name, lastmodifydate]
+[INFO][2017-04-01 12:58:01,034][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [fk74a6b2a8e0897c40]
+[INFO][2017-04-01 12:58:01,034][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [fk74a6b2a8e0897c40, primary]
+[INFO][2017-04-01 12:58:01,048][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.sys_role_permission
+[INFO][2017-04-01 12:58:01,048][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, role_id, permission_id, role__permission_id, createdate, createdatetime, lastmodifydate]
+[INFO][2017-04-01 12:58:01,048][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [fkfb2eafc616fba69d, fkfb2eafc61333817d]
+[INFO][2017-04-01 12:58:01,048][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [fkfb2eafc616fba69d, fkfb2eafc61333817d, primary]
+[INFO][2017-04-01 12:58:01,075][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.sys_user
+[INFO][2017-04-01 12:58:01,075][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, user_name, user_parent_id, createdate, createdatetime, user_id, password, lastmodifydate]
+[INFO][2017-04-01 12:58:01,075][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [fk74a81dfd99f23a2a]
+[INFO][2017-04-01 12:58:01,075][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary, fk74a81dfd99f23a2a]
+[INFO][2017-04-01 12:58:01,104][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.sys_user_role
+[INFO][2017-04-01 12:58:01,105][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, user_role_id, role_id, createdate, user_id, createdatetime, lastmodifydate]
+[INFO][2017-04-01 12:58:01,105][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [fk660c51781333817d, fk660c5178b85e92dd]
+[INFO][2017-04-01 12:58:01,105][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [fk660c51781333817d, fk660c5178b85e92dd, primary]
+[INFO][2017-04-01 12:58:01,110][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.user
+[INFO][2017-04-01 12:58:01,110][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, username, createdate, createdatetime, user_id, password, lastmodifydate]
+[INFO][2017-04-01 12:58:01,110][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2017-04-01 12:58:01,111][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2017-04-01 12:58:01,116][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.ztree_icon
+[INFO][2017-04-01 12:58:01,116][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, id, icon, icon_close, rank_id, icon_open, createdate, createdatetime, lastmodifydate]
+[INFO][2017-04-01 12:58:01,116][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [fk6ce2fd40421f1488]
+[INFO][2017-04-01 12:58:01,117][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [fk6ce2fd40421f1488, primary]
+[INFO][2017-04-01 12:58:01,122][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.ztree_menu
+[INFO][2017-04-01 12:58:01,122][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, id, open, rank_id, name, createdate, createdatetime, lastmodifydate, url, parent_id]
+[INFO][2017-04-01 12:58:01,122][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [fk6ce4d626421f1488, fk6ce4d6268336e87d]
+[INFO][2017-04-01 12:58:01,122][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [fk6ce4d626421f1488, primary, fk6ce4d6268336e87d]
+[INFO][2017-04-01 12:58:01,126][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.ztree_rank
+[INFO][2017-04-01 12:58:01,127][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, id, rank_value, createdate, rank_name, createdatetime, lastmodifydate]
+[INFO][2017-04-01 12:58:01,127][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2017-04-01 12:58:01,127][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2017-04-01 12:58:01,995][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000232: Schema update complete
+[INFO][2017-04-01 12:59:53,462][org.hibernate.annotations.common.Version]HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+[INFO][2017-04-01 12:59:53,468][org.hibernate.Version]HHH000412: Hibernate Core {4.1.3.Final}
+[INFO][2017-04-01 12:59:53,470][org.hibernate.cfg.Environment]HHH000206: hibernate.properties not found
+[INFO][2017-04-01 12:59:53,472][org.hibernate.cfg.Environment]HHH000021: Bytecode provider name : javassist
+[INFO][2017-04-01 12:59:54,021][org.hibernate.dialect.Dialect]HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+[INFO][2017-04-01 12:59:54,029][org.hibernate.engine.jdbc.internal.LobCreatorBuilder]HHH000423: Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+[INFO][2017-04-01 12:59:54,036][org.hibernate.engine.transaction.internal.TransactionFactoryInitiator]HHH000399: Using default transaction strategy (direct JDBC transactions)
+[INFO][2017-04-01 12:59:54,039][org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory]HHH000397: Using ASTQueryTranslatorFactory
+[INFO][2017-04-01 12:59:54,078][org.hibernate.validator.internal.util.Version]HV000001: Hibernate Validator 5.2.4.Final
+[INFO][2017-04-01 12:59:54,679][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000228: Running hbm2ddl schema update
+[INFO][2017-04-01 12:59:54,679][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000102: Fetching database metadata
+[INFO][2017-04-01 12:59:54,681][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000396: Updating schema
+[INFO][2017-04-01 12:59:54,698][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.bigstudent
+[INFO][2017-04-01 12:59:54,698][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, b_name, bs_id, student_id, createdate, createdatetime, lastmodifydate]
+[INFO][2017-04-01 12:59:54,698][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [fk12fefd1b6decc693]
+[INFO][2017-04-01 12:59:54,698][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary, fk12fefd1b6decc693]
+[INFO][2017-04-01 12:59:54,705][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.bootstrap_ace_menu
+[INFO][2017-04-01 12:59:54,705][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, id, icon, text, createdate, createdatetime, lastmodifydate, url, parent_id]
+[INFO][2017-04-01 12:59:54,705][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [fk8997ee4cfa925641]
+[INFO][2017-04-01 12:59:54,706][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [fk8997ee4cfa925641, primary]
+[INFO][2017-04-01 12:59:54,710][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.fornow_base_language
+[INFO][2017-04-01 12:59:54,710][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, language_id, createdate, createdatetime, language_name, lastmodifydate]
+[INFO][2017-04-01 12:59:54,711][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2017-04-01 12:59:54,711][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2017-04-01 12:59:54,716][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.fornow_class_type
+[INFO][2017-04-01 12:59:54,717][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, class_type_id, createdate, createdatetime, class_name, lastmodifydate]
+[INFO][2017-04-01 12:59:54,717][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2017-04-01 12:59:54,717][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2017-04-01 12:59:54,722][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.fornow_students
+[INFO][2017-04-01 12:59:54,722][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, name, createdate, student_id, user_id, createdatetime, lastmodifydate]
+[INFO][2017-04-01 12:59:54,722][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [fkd3c8c42a44d2e124]
+[INFO][2017-04-01 12:59:54,722][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary, fkd3c8c42a44d2e124]
+[INFO][2017-04-01 12:59:54,727][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.fornow_user
+[INFO][2017-04-01 12:59:54,727][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, username, createdate, createdatetime, user_id, lastmodifydate]
+[INFO][2017-04-01 12:59:54,727][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2017-04-01 12:59:54,727][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2017-04-01 12:59:54,733][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.images
+[INFO][2017-04-01 12:59:54,733][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, id, cover, name, createdate, newfilename, user_id, createdatetime, lastmodifydate, size]
+[INFO][2017-04-01 12:59:54,733][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [fkb95a8278691c2c7a]
+[INFO][2017-04-01 12:59:54,733][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary, fkb95a8278691c2c7a]
+[INFO][2017-04-01 12:59:54,741][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.img_user
+[INFO][2017-04-01 12:59:54,742][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, username, createdate, createdatetime, user_id, password, lastmodifydate]
+[INFO][2017-04-01 12:59:54,742][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2017-04-01 12:59:54,742][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2017-04-01 12:59:54,748][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.maxstudent
+[INFO][2017-04-01 12:59:54,749][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, bsid, createdate, ms_id, m_name, createdatetime, lastmodifydate]
+[INFO][2017-04-01 12:59:54,749][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [fkd5f75c3788da5cee]
+[INFO][2017-04-01 12:59:54,749][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary, fkd5f75c3788da5cee]
+[INFO][2017-04-01 12:59:54,755][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.prize
+[INFO][2017-04-01 12:59:54,755][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, id, name, createdate, probability, createdatetime, lastmodifydate]
+[INFO][2017-04-01 12:59:54,755][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2017-04-01 12:59:54,755][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2017-04-01 12:59:54,761][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.student
+[INFO][2017-04-01 12:59:54,761][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, nickname, createdate, student_id, user_id, createdatetime, lastmodifydate]
+[INFO][2017-04-01 12:59:54,761][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [fk8ffe823b9fc2b9c1]
+[INFO][2017-04-01 12:59:54,761][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [fk8ffe823b9fc2b9c1, primary]
+[INFO][2017-04-01 12:59:54,767][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.super_appointment
+[INFO][2017-04-01 12:59:54,768][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, student_id, createdate, createdatetime, appt_id, lastmodifydate]
+[INFO][2017-04-01 12:59:54,768][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [fk79d2c8dbe7a6ab0a]
+[INFO][2017-04-01 12:59:54,768][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary, fk79d2c8dbe7a6ab0a]
+[INFO][2017-04-01 12:59:54,774][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.super_appt_class
+[INFO][2017-04-01 12:59:54,774][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, class_id, appt_class_id, createdate, appt_id, createdatetime, lastmodifydate]
+[INFO][2017-04-01 12:59:54,774][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [fk7edeeff062603dac, fk7edeeff090020def]
+[INFO][2017-04-01 12:59:54,774][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [fk7edeeff062603dac, fk7edeeff090020def, primary]
+[INFO][2017-04-01 12:59:54,780][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.sys_menu
+[INFO][2017-04-01 12:59:54,780][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, id, action, createdate, parentid, label, createdatetime, ordervalue, leaf, expanded, lastmodifydate]
+[INFO][2017-04-01 12:59:54,781][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [fk74a44791145f6e0]
+[INFO][2017-04-01 12:59:54,781][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary, fk74a44791145f6e0]
+[INFO][2017-04-01 12:59:54,785][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.sys_permission
+[INFO][2017-04-01 12:59:54,786][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, permission_id, permission_name, createdate, createdatetime, permission_description, permission_parent_id, lastmodifydate, url]
+[INFO][2017-04-01 12:59:54,786][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [fkc9610a81685bbb72]
+[INFO][2017-04-01 12:59:54,786][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary, fkc9610a81685bbb72]
+[INFO][2017-04-01 12:59:54,794][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.sys_role
+[INFO][2017-04-01 12:59:54,794][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, role_description, role_id, createdate, createdatetime, role_parent_id, role_name, lastmodifydate]
+[INFO][2017-04-01 12:59:54,794][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [fk74a6b2a8e0897c40]
+[INFO][2017-04-01 12:59:54,794][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [fk74a6b2a8e0897c40, primary]
+[INFO][2017-04-01 12:59:54,800][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.sys_role_permission
+[INFO][2017-04-01 12:59:54,801][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, role_id, permission_id, role__permission_id, createdate, createdatetime, lastmodifydate]
+[INFO][2017-04-01 12:59:54,801][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [fkfb2eafc616fba69d, fkfb2eafc61333817d]
+[INFO][2017-04-01 12:59:54,801][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [fkfb2eafc616fba69d, fkfb2eafc61333817d, primary]
+[INFO][2017-04-01 12:59:54,807][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.sys_user
+[INFO][2017-04-01 12:59:54,807][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, user_name, user_parent_id, createdate, createdatetime, user_id, password, lastmodifydate]
+[INFO][2017-04-01 12:59:54,807][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [fk74a81dfd99f23a2a]
+[INFO][2017-04-01 12:59:54,807][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary, fk74a81dfd99f23a2a]
+[INFO][2017-04-01 12:59:54,813][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.sys_user_role
+[INFO][2017-04-01 12:59:54,813][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, user_role_id, role_id, createdate, user_id, createdatetime, lastmodifydate]
+[INFO][2017-04-01 12:59:54,813][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [fk660c51781333817d, fk660c5178b85e92dd]
+[INFO][2017-04-01 12:59:54,814][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [fk660c51781333817d, fk660c5178b85e92dd, primary]
+[INFO][2017-04-01 12:59:54,819][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.user
+[INFO][2017-04-01 12:59:54,819][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, username, createdate, createdatetime, user_id, password, lastmodifydate]
+[INFO][2017-04-01 12:59:54,819][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2017-04-01 12:59:54,819][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2017-04-01 12:59:54,825][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.ztree_icon
+[INFO][2017-04-01 12:59:54,825][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, id, icon, icon_close, rank_id, icon_open, createdate, createdatetime, lastmodifydate]
+[INFO][2017-04-01 12:59:54,825][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [fk6ce2fd40421f1488]
+[INFO][2017-04-01 12:59:54,825][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [fk6ce2fd40421f1488, primary]
+[INFO][2017-04-01 12:59:54,832][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.ztree_menu
+[INFO][2017-04-01 12:59:54,833][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, id, open, rank_id, name, createdate, createdatetime, lastmodifydate, url, parent_id]
+[INFO][2017-04-01 12:59:54,833][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [fk6ce4d626421f1488, fk6ce4d6268336e87d]
+[INFO][2017-04-01 12:59:54,833][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [fk6ce4d626421f1488, primary, fk6ce4d6268336e87d]
+[INFO][2017-04-01 12:59:54,837][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.ztree_rank
+[INFO][2017-04-01 12:59:54,837][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, id, rank_value, createdate, rank_name, createdatetime, lastmodifydate]
+[INFO][2017-04-01 12:59:54,838][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2017-04-01 12:59:54,838][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2017-04-01 12:59:54,839][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000232: Schema update complete
+[INFO][2017-04-01 13:02:58,845][org.hibernate.annotations.common.Version]HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+[INFO][2017-04-01 13:02:58,850][org.hibernate.Version]HHH000412: Hibernate Core {4.1.3.Final}
+[INFO][2017-04-01 13:02:58,852][org.hibernate.cfg.Environment]HHH000206: hibernate.properties not found
+[INFO][2017-04-01 13:02:58,853][org.hibernate.cfg.Environment]HHH000021: Bytecode provider name : javassist
+[INFO][2017-04-01 13:02:59,400][org.hibernate.dialect.Dialect]HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+[INFO][2017-04-01 13:02:59,408][org.hibernate.engine.jdbc.internal.LobCreatorBuilder]HHH000423: Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+[INFO][2017-04-01 13:02:59,418][org.hibernate.engine.transaction.internal.TransactionFactoryInitiator]HHH000399: Using default transaction strategy (direct JDBC transactions)
+[INFO][2017-04-01 13:02:59,423][org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory]HHH000397: Using ASTQueryTranslatorFactory
+[INFO][2017-04-01 13:02:59,475][org.hibernate.validator.internal.util.Version]HV000001: Hibernate Validator 5.2.4.Final
+[INFO][2017-04-01 13:03:00,210][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000228: Running hbm2ddl schema update
+[INFO][2017-04-01 13:03:00,210][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000102: Fetching database metadata
+[INFO][2017-04-01 13:03:00,211][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000396: Updating schema
+[INFO][2017-04-01 13:03:00,227][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.bigstudent
+[INFO][2017-04-01 13:03:00,227][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, b_name, bs_id, student_id, createdate, createdatetime, lastmodifydate]
+[INFO][2017-04-01 13:03:00,227][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [fk12fefd1b6decc693]
+[INFO][2017-04-01 13:03:00,227][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary, fk12fefd1b6decc693]
+[INFO][2017-04-01 13:03:00,254][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.bootstrap_ace_menu
+[INFO][2017-04-01 13:03:00,254][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, id, icon, text, createdate, createdatetime, lastmodifydate, url, parent_id]
+[INFO][2017-04-01 13:03:00,254][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [fk8997ee4cfa925641]
+[INFO][2017-04-01 13:03:00,254][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [fk8997ee4cfa925641, primary]
+[INFO][2017-04-01 13:03:00,261][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.fornow_base_language
+[INFO][2017-04-01 13:03:00,261][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, language_id, createdate, createdatetime, language_name, lastmodifydate]
+[INFO][2017-04-01 13:03:00,261][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2017-04-01 13:03:00,261][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2017-04-01 13:03:00,268][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.fornow_class_type
+[INFO][2017-04-01 13:03:00,269][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, class_type_id, createdate, createdatetime, class_name, lastmodifydate]
+[INFO][2017-04-01 13:03:00,269][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2017-04-01 13:03:00,269][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2017-04-01 13:03:00,274][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.fornow_students
+[INFO][2017-04-01 13:03:00,274][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, name, createdate, student_id, user_id, createdatetime, lastmodifydate]
+[INFO][2017-04-01 13:03:00,274][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [fkd3c8c42a44d2e124]
+[INFO][2017-04-01 13:03:00,274][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary, fkd3c8c42a44d2e124]
+[INFO][2017-04-01 13:03:00,280][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.fornow_user
+[INFO][2017-04-01 13:03:00,280][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, username, createdate, createdatetime, user_id, lastmodifydate]
+[INFO][2017-04-01 13:03:00,280][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2017-04-01 13:03:00,280][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2017-04-01 13:03:00,285][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.images
+[INFO][2017-04-01 13:03:00,285][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, id, cover, name, createdate, newfilename, user_id, createdatetime, lastmodifydate, size]
+[INFO][2017-04-01 13:03:00,285][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [fkb95a8278691c2c7a]
+[INFO][2017-04-01 13:03:00,285][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary, fkb95a8278691c2c7a]
+[INFO][2017-04-01 13:03:00,294][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.img_user
+[INFO][2017-04-01 13:03:00,294][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, username, createdate, createdatetime, user_id, password, lastmodifydate]
+[INFO][2017-04-01 13:03:00,294][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2017-04-01 13:03:00,294][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2017-04-01 13:03:00,301][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.maxstudent
+[INFO][2017-04-01 13:03:00,301][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, bsid, createdate, ms_id, m_name, createdatetime, lastmodifydate]
+[INFO][2017-04-01 13:03:00,301][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [fkd5f75c3788da5cee]
+[INFO][2017-04-01 13:03:00,301][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary, fkd5f75c3788da5cee]
+[INFO][2017-04-01 13:03:00,306][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.prize
+[INFO][2017-04-01 13:03:00,306][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, id, name, createdate, probability, createdatetime, lastmodifydate]
+[INFO][2017-04-01 13:03:00,306][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2017-04-01 13:03:00,306][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2017-04-01 13:03:00,311][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.student
+[INFO][2017-04-01 13:03:00,311][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, nickname, createdate, student_id, user_id, createdatetime, lastmodifydate]
+[INFO][2017-04-01 13:03:00,311][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [fk8ffe823b9fc2b9c1]
+[INFO][2017-04-01 13:03:00,311][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [fk8ffe823b9fc2b9c1, primary]
+[INFO][2017-04-01 13:03:00,317][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.super_appointment
+[INFO][2017-04-01 13:03:00,317][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, student_id, createdate, createdatetime, appt_id, lastmodifydate]
+[INFO][2017-04-01 13:03:00,317][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [fk79d2c8dbe7a6ab0a]
+[INFO][2017-04-01 13:03:00,317][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary, fk79d2c8dbe7a6ab0a]
+[INFO][2017-04-01 13:03:00,328][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.super_appt_class
+[INFO][2017-04-01 13:03:00,328][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, class_id, appt_class_id, createdate, appt_id, createdatetime, lastmodifydate]
+[INFO][2017-04-01 13:03:00,328][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [fk7edeeff062603dac, fk7edeeff090020def]
+[INFO][2017-04-01 13:03:00,328][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [fk7edeeff062603dac, fk7edeeff090020def, primary]
+[INFO][2017-04-01 13:03:00,334][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.sys_menu
+[INFO][2017-04-01 13:03:00,334][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, id, action, createdate, parentid, label, createdatetime, ordervalue, leaf, expanded, lastmodifydate]
+[INFO][2017-04-01 13:03:00,334][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [fk74a44791145f6e0]
+[INFO][2017-04-01 13:03:00,334][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary, fk74a44791145f6e0]
+[INFO][2017-04-01 13:03:00,340][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.sys_permission
+[INFO][2017-04-01 13:03:00,340][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, permission_id, permission_name, createdate, createdatetime, permission_description, permission_parent_id, lastmodifydate, url]
+[INFO][2017-04-01 13:03:00,341][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [fkc9610a81685bbb72]
+[INFO][2017-04-01 13:03:00,341][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary, fkc9610a81685bbb72]
+[INFO][2017-04-01 13:03:00,346][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.sys_role
+[INFO][2017-04-01 13:03:00,347][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, role_description, role_id, createdate, createdatetime, role_parent_id, role_name, lastmodifydate]
+[INFO][2017-04-01 13:03:00,347][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [fk74a6b2a8e0897c40]
+[INFO][2017-04-01 13:03:00,347][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [fk74a6b2a8e0897c40, primary]
+[INFO][2017-04-01 13:03:00,353][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.sys_role_permission
+[INFO][2017-04-01 13:03:00,353][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, role_id, permission_id, role__permission_id, createdate, createdatetime, lastmodifydate]
+[INFO][2017-04-01 13:03:00,353][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [fkfb2eafc616fba69d, fkfb2eafc61333817d]
+[INFO][2017-04-01 13:03:00,353][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [fkfb2eafc616fba69d, fkfb2eafc61333817d, primary]
+[INFO][2017-04-01 13:03:00,359][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.sys_user
+[INFO][2017-04-01 13:03:00,359][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, user_name, user_parent_id, createdate, createdatetime, user_id, password, lastmodifydate]
+[INFO][2017-04-01 13:03:00,359][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [fk74a81dfd99f23a2a]
+[INFO][2017-04-01 13:03:00,359][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary, fk74a81dfd99f23a2a]
+[INFO][2017-04-01 13:03:00,364][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.sys_user_role
+[INFO][2017-04-01 13:03:00,364][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, user_role_id, role_id, createdate, user_id, createdatetime, lastmodifydate]
+[INFO][2017-04-01 13:03:00,364][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [fk660c51781333817d, fk660c5178b85e92dd]
+[INFO][2017-04-01 13:03:00,364][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [fk660c51781333817d, fk660c5178b85e92dd, primary]
+[INFO][2017-04-01 13:03:00,369][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.user
+[INFO][2017-04-01 13:03:00,369][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, username, createdate, createdatetime, user_id, password, lastmodifydate]
+[INFO][2017-04-01 13:03:00,369][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2017-04-01 13:03:00,369][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2017-04-01 13:03:00,374][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.ztree_icon
+[INFO][2017-04-01 13:03:00,374][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, id, icon, icon_close, rank_id, icon_open, createdate, createdatetime, lastmodifydate]
+[INFO][2017-04-01 13:03:00,374][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [fk6ce2fd40421f1488]
+[INFO][2017-04-01 13:03:00,374][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [fk6ce2fd40421f1488, primary]
+[INFO][2017-04-01 13:03:00,380][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.ztree_menu
+[INFO][2017-04-01 13:03:00,380][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, id, open, rank_id, name, createdate, createdatetime, lastmodifydate, url, parent_id]
+[INFO][2017-04-01 13:03:00,380][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [fk6ce4d626421f1488, fk6ce4d6268336e87d]
+[INFO][2017-04-01 13:03:00,380][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [fk6ce4d626421f1488, primary, fk6ce4d6268336e87d]
+[INFO][2017-04-01 13:03:00,385][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.ztree_rank
+[INFO][2017-04-01 13:03:00,385][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, id, rank_value, createdate, rank_name, createdatetime, lastmodifydate]
+[INFO][2017-04-01 13:03:00,385][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2017-04-01 13:03:00,385][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2017-04-01 13:03:00,387][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000232: Schema update complete
+[INFO][2017-04-01 13:03:34,037][org.hibernate.annotations.common.Version]HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+[INFO][2017-04-01 13:03:34,052][org.hibernate.Version]HHH000412: Hibernate Core {4.1.3.Final}
+[INFO][2017-04-01 13:03:34,055][org.hibernate.cfg.Environment]HHH000206: hibernate.properties not found
+[INFO][2017-04-01 13:03:34,057][org.hibernate.cfg.Environment]HHH000021: Bytecode provider name : javassist
+[INFO][2017-04-01 13:03:34,641][org.hibernate.dialect.Dialect]HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+[INFO][2017-04-01 13:03:34,649][org.hibernate.engine.jdbc.internal.LobCreatorBuilder]HHH000423: Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+[INFO][2017-04-01 13:03:34,656][org.hibernate.engine.transaction.internal.TransactionFactoryInitiator]HHH000399: Using default transaction strategy (direct JDBC transactions)
+[INFO][2017-04-01 13:03:34,659][org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory]HHH000397: Using ASTQueryTranslatorFactory
+[INFO][2017-04-01 13:03:34,697][org.hibernate.validator.internal.util.Version]HV000001: Hibernate Validator 5.2.4.Final
+[INFO][2017-04-01 13:03:35,269][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000228: Running hbm2ddl schema update
+[INFO][2017-04-01 13:03:35,269][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000102: Fetching database metadata
+[INFO][2017-04-01 13:03:35,270][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000396: Updating schema
+[INFO][2017-04-01 13:03:35,286][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.bigstudent
+[INFO][2017-04-01 13:03:35,286][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, b_name, bs_id, student_id, createdate, createdatetime, lastmodifydate]
+[INFO][2017-04-01 13:03:35,286][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [fk12fefd1b6decc693]
+[INFO][2017-04-01 13:03:35,286][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary, fk12fefd1b6decc693]
+[INFO][2017-04-01 13:03:35,293][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.bootstrap_ace_menu
+[INFO][2017-04-01 13:03:35,293][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, id, icon, text, createdate, createdatetime, lastmodifydate, url, parent_id]
+[INFO][2017-04-01 13:03:35,293][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [fk8997ee4cfa925641]
+[INFO][2017-04-01 13:03:35,293][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [fk8997ee4cfa925641, primary]
+[INFO][2017-04-01 13:03:35,300][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.fornow_base_language
+[INFO][2017-04-01 13:03:35,300][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, language_id, createdate, createdatetime, language_name, lastmodifydate]
+[INFO][2017-04-01 13:03:35,300][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2017-04-01 13:03:35,300][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2017-04-01 13:03:35,306][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.fornow_class_type
+[INFO][2017-04-01 13:03:35,306][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, class_type_id, createdate, createdatetime, class_name, lastmodifydate]
+[INFO][2017-04-01 13:03:35,306][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2017-04-01 13:03:35,306][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2017-04-01 13:03:35,311][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.fornow_students
+[INFO][2017-04-01 13:03:35,312][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, name, createdate, student_id, user_id, createdatetime, lastmodifydate]
+[INFO][2017-04-01 13:03:35,312][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [fkd3c8c42a44d2e124]
+[INFO][2017-04-01 13:03:35,312][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary, fkd3c8c42a44d2e124]
+[INFO][2017-04-01 13:03:35,317][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.fornow_user
+[INFO][2017-04-01 13:03:35,317][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, username, createdate, createdatetime, user_id, lastmodifydate]
+[INFO][2017-04-01 13:03:35,317][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2017-04-01 13:03:35,317][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2017-04-01 13:03:35,324][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.images
+[INFO][2017-04-01 13:03:35,324][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, id, cover, name, createdate, newfilename, user_id, createdatetime, lastmodifydate, size]
+[INFO][2017-04-01 13:03:35,324][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [fkb95a8278691c2c7a]
+[INFO][2017-04-01 13:03:35,324][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary, fkb95a8278691c2c7a]
+[INFO][2017-04-01 13:03:35,334][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.img_user
+[INFO][2017-04-01 13:03:35,334][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, username, createdate, createdatetime, user_id, password, lastmodifydate]
+[INFO][2017-04-01 13:03:35,334][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2017-04-01 13:03:35,335][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2017-04-01 13:03:35,344][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.maxstudent
+[INFO][2017-04-01 13:03:35,344][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, bsid, createdate, ms_id, m_name, createdatetime, lastmodifydate]
+[INFO][2017-04-01 13:03:35,345][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [fkd5f75c3788da5cee]
+[INFO][2017-04-01 13:03:35,345][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary, fkd5f75c3788da5cee]
+[INFO][2017-04-01 13:03:35,351][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.prize
+[INFO][2017-04-01 13:03:35,351][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, id, name, createdate, probability, createdatetime, lastmodifydate]
+[INFO][2017-04-01 13:03:35,351][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2017-04-01 13:03:35,351][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2017-04-01 13:03:35,357][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.student
+[INFO][2017-04-01 13:03:35,357][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, nickname, createdate, student_id, user_id, createdatetime, lastmodifydate]
+[INFO][2017-04-01 13:03:35,357][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [fk8ffe823b9fc2b9c1]
+[INFO][2017-04-01 13:03:35,357][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [fk8ffe823b9fc2b9c1, primary]
+[INFO][2017-04-01 13:03:35,364][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.super_appointment
+[INFO][2017-04-01 13:03:35,364][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, student_id, createdate, createdatetime, appt_id, lastmodifydate]
+[INFO][2017-04-01 13:03:35,364][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [fk79d2c8dbe7a6ab0a]
+[INFO][2017-04-01 13:03:35,364][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary, fk79d2c8dbe7a6ab0a]
+[INFO][2017-04-01 13:03:35,371][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.super_appt_class
+[INFO][2017-04-01 13:03:35,371][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, class_id, appt_class_id, createdate, appt_id, createdatetime, lastmodifydate]
+[INFO][2017-04-01 13:03:35,371][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [fk7edeeff062603dac, fk7edeeff090020def]
+[INFO][2017-04-01 13:03:35,371][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [fk7edeeff062603dac, fk7edeeff090020def, primary]
+[INFO][2017-04-01 13:03:35,377][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.sys_menu
+[INFO][2017-04-01 13:03:35,377][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, id, action, createdate, parentid, label, createdatetime, ordervalue, leaf, expanded, lastmodifydate]
+[INFO][2017-04-01 13:03:35,377][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [fk74a44791145f6e0]
+[INFO][2017-04-01 13:03:35,377][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary, fk74a44791145f6e0]
+[INFO][2017-04-01 13:03:35,384][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.sys_permission
+[INFO][2017-04-01 13:03:35,384][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, permission_id, permission_name, createdate, createdatetime, permission_description, permission_parent_id, lastmodifydate, url]
+[INFO][2017-04-01 13:03:35,384][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [fkc9610a81685bbb72]
+[INFO][2017-04-01 13:03:35,384][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary, fkc9610a81685bbb72]
+[INFO][2017-04-01 13:03:35,390][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.sys_role
+[INFO][2017-04-01 13:03:35,390][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, role_description, role_id, createdate, createdatetime, role_parent_id, role_name, lastmodifydate]
+[INFO][2017-04-01 13:03:35,390][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [fk74a6b2a8e0897c40]
+[INFO][2017-04-01 13:03:35,391][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [fk74a6b2a8e0897c40, primary]
+[INFO][2017-04-01 13:03:35,397][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.sys_role_permission
+[INFO][2017-04-01 13:03:35,397][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, role_id, permission_id, role__permission_id, createdate, createdatetime, lastmodifydate]
+[INFO][2017-04-01 13:03:35,397][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [fkfb2eafc616fba69d, fkfb2eafc61333817d]
+[INFO][2017-04-01 13:03:35,397][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [fkfb2eafc616fba69d, fkfb2eafc61333817d, primary]
+[INFO][2017-04-01 13:03:35,403][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.sys_user
+[INFO][2017-04-01 13:03:35,403][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, user_name, user_parent_id, createdate, createdatetime, user_id, password, lastmodifydate]
+[INFO][2017-04-01 13:03:35,403][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [fk74a81dfd99f23a2a]
+[INFO][2017-04-01 13:03:35,403][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary, fk74a81dfd99f23a2a]
+[INFO][2017-04-01 13:03:35,408][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.sys_user_role
+[INFO][2017-04-01 13:03:35,408][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, user_role_id, role_id, createdate, user_id, createdatetime, lastmodifydate]
+[INFO][2017-04-01 13:03:35,408][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [fk660c51781333817d, fk660c5178b85e92dd]
+[INFO][2017-04-01 13:03:35,408][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [fk660c51781333817d, fk660c5178b85e92dd, primary]
+[INFO][2017-04-01 13:03:35,414][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.user
+[INFO][2017-04-01 13:03:35,414][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, username, createdate, createdatetime, user_id, password, lastmodifydate]
+[INFO][2017-04-01 13:03:35,414][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2017-04-01 13:03:35,414][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2017-04-01 13:03:35,419][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.ztree_icon
+[INFO][2017-04-01 13:03:35,419][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, id, icon, icon_close, rank_id, icon_open, createdate, createdatetime, lastmodifydate]
+[INFO][2017-04-01 13:03:35,419][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [fk6ce2fd40421f1488]
+[INFO][2017-04-01 13:03:35,419][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [fk6ce2fd40421f1488, primary]
+[INFO][2017-04-01 13:03:35,425][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.ztree_menu
+[INFO][2017-04-01 13:03:35,425][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, id, open, rank_id, name, createdate, createdatetime, lastmodifydate, url, parent_id]
+[INFO][2017-04-01 13:03:35,425][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [fk6ce4d626421f1488, fk6ce4d6268336e87d]
+[INFO][2017-04-01 13:03:35,426][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [fk6ce4d626421f1488, primary, fk6ce4d6268336e87d]
+[INFO][2017-04-01 13:03:35,430][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.ztree_rank
+[INFO][2017-04-01 13:03:35,430][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, id, rank_value, createdate, rank_name, createdatetime, lastmodifydate]
+[INFO][2017-04-01 13:03:35,430][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2017-04-01 13:03:35,430][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2017-04-01 13:03:35,432][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000232: Schema update complete
+[INFO][2017-04-01 13:04:02,406][org.hibernate.annotations.common.Version]HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+[INFO][2017-04-01 13:04:02,414][org.hibernate.Version]HHH000412: Hibernate Core {4.1.3.Final}
+[INFO][2017-04-01 13:04:02,417][org.hibernate.cfg.Environment]HHH000206: hibernate.properties not found
+[INFO][2017-04-01 13:04:02,418][org.hibernate.cfg.Environment]HHH000021: Bytecode provider name : javassist
+[INFO][2017-04-01 13:04:03,002][org.hibernate.dialect.Dialect]HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+[INFO][2017-04-01 13:04:03,009][org.hibernate.engine.jdbc.internal.LobCreatorBuilder]HHH000423: Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+[INFO][2017-04-01 13:04:03,016][org.hibernate.engine.transaction.internal.TransactionFactoryInitiator]HHH000399: Using default transaction strategy (direct JDBC transactions)
+[INFO][2017-04-01 13:04:03,020][org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory]HHH000397: Using ASTQueryTranslatorFactory
+[INFO][2017-04-01 13:04:03,060][org.hibernate.validator.internal.util.Version]HV000001: Hibernate Validator 5.2.4.Final
+[INFO][2017-04-01 13:04:03,638][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000228: Running hbm2ddl schema update
+[INFO][2017-04-01 13:04:03,638][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000102: Fetching database metadata
+[INFO][2017-04-01 13:04:03,640][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000396: Updating schema
+[INFO][2017-04-01 13:04:03,655][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.bigstudent
+[INFO][2017-04-01 13:04:03,655][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, b_name, bs_id, student_id, createdate, createdatetime, lastmodifydate]
+[INFO][2017-04-01 13:04:03,655][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [fk12fefd1b6decc693]
+[INFO][2017-04-01 13:04:03,655][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary, fk12fefd1b6decc693]
+[INFO][2017-04-01 13:04:03,661][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.bootstrap_ace_menu
+[INFO][2017-04-01 13:04:03,661][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, id, icon, text, createdate, createdatetime, lastmodifydate, url, parent_id]
+[INFO][2017-04-01 13:04:03,661][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [fk8997ee4cfa925641]
+[INFO][2017-04-01 13:04:03,661][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [fk8997ee4cfa925641, primary]
+[INFO][2017-04-01 13:04:03,685][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.fornow_base_language
+[INFO][2017-04-01 13:04:03,685][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, language_id, createdate, createdatetime, language_name, lastmodifydate]
+[INFO][2017-04-01 13:04:03,686][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2017-04-01 13:04:03,686][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2017-04-01 13:04:03,692][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.fornow_class_type
+[INFO][2017-04-01 13:04:03,692][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, class_type_id, createdate, createdatetime, class_name, lastmodifydate]
+[INFO][2017-04-01 13:04:03,692][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2017-04-01 13:04:03,692][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2017-04-01 13:04:03,699][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.fornow_students
+[INFO][2017-04-01 13:04:03,699][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, name, createdate, student_id, user_id, createdatetime, lastmodifydate]
+[INFO][2017-04-01 13:04:03,700][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [fkd3c8c42a44d2e124]
+[INFO][2017-04-01 13:04:03,700][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary, fkd3c8c42a44d2e124]
+[INFO][2017-04-01 13:04:03,709][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.fornow_user
+[INFO][2017-04-01 13:04:03,709][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, username, createdate, createdatetime, user_id, lastmodifydate]
+[INFO][2017-04-01 13:04:03,709][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2017-04-01 13:04:03,709][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2017-04-01 13:04:03,716][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.images
+[INFO][2017-04-01 13:04:03,717][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, id, cover, name, createdate, newfilename, user_id, createdatetime, lastmodifydate, size]
+[INFO][2017-04-01 13:04:03,717][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [fkb95a8278691c2c7a]
+[INFO][2017-04-01 13:04:03,717][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary, fkb95a8278691c2c7a]
+[INFO][2017-04-01 13:04:03,728][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.img_user
+[INFO][2017-04-01 13:04:03,729][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, username, createdate, createdatetime, user_id, password, lastmodifydate]
+[INFO][2017-04-01 13:04:03,729][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2017-04-01 13:04:03,729][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2017-04-01 13:04:03,734][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.maxstudent
+[INFO][2017-04-01 13:04:03,735][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, bsid, createdate, ms_id, m_name, createdatetime, lastmodifydate]
+[INFO][2017-04-01 13:04:03,735][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [fkd5f75c3788da5cee]
+[INFO][2017-04-01 13:04:03,735][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary, fkd5f75c3788da5cee]
+[INFO][2017-04-01 13:04:03,743][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.prize
+[INFO][2017-04-01 13:04:03,743][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, id, name, createdate, probability, createdatetime, lastmodifydate]
+[INFO][2017-04-01 13:04:03,743][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2017-04-01 13:04:03,743][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2017-04-01 13:04:03,750][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.student
+[INFO][2017-04-01 13:04:03,750][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, nickname, createdate, student_id, user_id, createdatetime, lastmodifydate]
+[INFO][2017-04-01 13:04:03,750][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [fk8ffe823b9fc2b9c1]
+[INFO][2017-04-01 13:04:03,750][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [fk8ffe823b9fc2b9c1, primary]
+[INFO][2017-04-01 13:04:03,757][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.super_appointment
+[INFO][2017-04-01 13:04:03,757][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, student_id, createdate, createdatetime, appt_id, lastmodifydate]
+[INFO][2017-04-01 13:04:03,757][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [fk79d2c8dbe7a6ab0a]
+[INFO][2017-04-01 13:04:03,757][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary, fk79d2c8dbe7a6ab0a]
+[INFO][2017-04-01 13:04:03,766][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.super_appt_class
+[INFO][2017-04-01 13:04:03,767][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, class_id, appt_class_id, createdate, appt_id, createdatetime, lastmodifydate]
+[INFO][2017-04-01 13:04:03,767][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [fk7edeeff062603dac, fk7edeeff090020def]
+[INFO][2017-04-01 13:04:03,767][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [fk7edeeff062603dac, fk7edeeff090020def, primary]
+[INFO][2017-04-01 13:04:03,773][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.sys_menu
+[INFO][2017-04-01 13:04:03,774][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, id, action, createdate, parentid, label, createdatetime, ordervalue, leaf, expanded, lastmodifydate]
+[INFO][2017-04-01 13:04:03,774][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [fk74a44791145f6e0]
+[INFO][2017-04-01 13:04:03,774][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary, fk74a44791145f6e0]
+[INFO][2017-04-01 13:04:03,779][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.sys_permission
+[INFO][2017-04-01 13:04:03,780][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, permission_id, permission_name, createdate, createdatetime, permission_description, permission_parent_id, lastmodifydate, url]
+[INFO][2017-04-01 13:04:03,780][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [fkc9610a81685bbb72]
+[INFO][2017-04-01 13:04:03,780][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary, fkc9610a81685bbb72]
+[INFO][2017-04-01 13:04:03,785][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.sys_role
+[INFO][2017-04-01 13:04:03,785][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, role_description, role_id, createdate, createdatetime, role_parent_id, role_name, lastmodifydate]
+[INFO][2017-04-01 13:04:03,786][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [fk74a6b2a8e0897c40]
+[INFO][2017-04-01 13:04:03,786][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [fk74a6b2a8e0897c40, primary]
+[INFO][2017-04-01 13:04:03,792][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.sys_role_permission
+[INFO][2017-04-01 13:04:03,793][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, role_id, permission_id, role__permission_id, createdate, createdatetime, lastmodifydate]
+[INFO][2017-04-01 13:04:03,793][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [fkfb2eafc616fba69d, fkfb2eafc61333817d]
+[INFO][2017-04-01 13:04:03,793][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [fkfb2eafc616fba69d, fkfb2eafc61333817d, primary]
+[INFO][2017-04-01 13:04:03,800][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.sys_user
+[INFO][2017-04-01 13:04:03,801][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, user_name, user_parent_id, createdate, createdatetime, user_id, password, lastmodifydate]
+[INFO][2017-04-01 13:04:03,801][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [fk74a81dfd99f23a2a]
+[INFO][2017-04-01 13:04:03,801][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary, fk74a81dfd99f23a2a]
+[INFO][2017-04-01 13:04:03,806][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.sys_user_role
+[INFO][2017-04-01 13:04:03,806][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, user_role_id, role_id, createdate, user_id, createdatetime, lastmodifydate]
+[INFO][2017-04-01 13:04:03,807][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [fk660c51781333817d, fk660c5178b85e92dd]
+[INFO][2017-04-01 13:04:03,807][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [fk660c51781333817d, fk660c5178b85e92dd, primary]
+[INFO][2017-04-01 13:04:03,812][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.user
+[INFO][2017-04-01 13:04:03,812][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, username, createdate, createdatetime, user_id, password, lastmodifydate]
+[INFO][2017-04-01 13:04:03,812][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2017-04-01 13:04:03,812][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2017-04-01 13:04:03,819][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.ztree_icon
+[INFO][2017-04-01 13:04:03,819][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, id, icon, icon_close, rank_id, icon_open, createdate, createdatetime, lastmodifydate]
+[INFO][2017-04-01 13:04:03,819][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [fk6ce2fd40421f1488]
+[INFO][2017-04-01 13:04:03,819][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [fk6ce2fd40421f1488, primary]
+[INFO][2017-04-01 13:04:03,824][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.ztree_menu
+[INFO][2017-04-01 13:04:03,824][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, id, open, rank_id, name, createdate, createdatetime, lastmodifydate, url, parent_id]
+[INFO][2017-04-01 13:04:03,824][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [fk6ce4d626421f1488, fk6ce4d6268336e87d]
+[INFO][2017-04-01 13:04:03,825][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [fk6ce4d626421f1488, primary, fk6ce4d6268336e87d]
+[INFO][2017-04-01 13:04:03,830][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.ztree_rank
+[INFO][2017-04-01 13:04:03,830][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, id, rank_value, createdate, rank_name, createdatetime, lastmodifydate]
+[INFO][2017-04-01 13:04:03,830][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2017-04-01 13:04:03,830][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2017-04-01 13:04:03,832][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000232: Schema update complete
+[INFO][2017-04-01 13:04:52,706][org.hibernate.annotations.common.Version]HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+[INFO][2017-04-01 13:04:52,712][org.hibernate.Version]HHH000412: Hibernate Core {4.1.3.Final}
+[INFO][2017-04-01 13:04:52,715][org.hibernate.cfg.Environment]HHH000206: hibernate.properties not found
+[INFO][2017-04-01 13:04:52,716][org.hibernate.cfg.Environment]HHH000021: Bytecode provider name : javassist
+[INFO][2017-04-01 13:04:53,211][org.hibernate.dialect.Dialect]HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+[INFO][2017-04-01 13:04:53,217][org.hibernate.engine.jdbc.internal.LobCreatorBuilder]HHH000423: Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+[INFO][2017-04-01 13:04:53,228][org.hibernate.engine.transaction.internal.TransactionFactoryInitiator]HHH000399: Using default transaction strategy (direct JDBC transactions)
+[INFO][2017-04-01 13:04:53,232][org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory]HHH000397: Using ASTQueryTranslatorFactory
+[INFO][2017-04-01 13:04:53,273][org.hibernate.validator.internal.util.Version]HV000001: Hibernate Validator 5.2.4.Final
+[INFO][2017-04-01 13:04:53,826][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000228: Running hbm2ddl schema update
+[INFO][2017-04-01 13:04:53,826][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000102: Fetching database metadata
+[INFO][2017-04-01 13:04:53,828][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000396: Updating schema
+[INFO][2017-04-01 13:04:53,844][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.bigstudent
+[INFO][2017-04-01 13:04:53,844][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, b_name, bs_id, student_id, createdate, createdatetime, lastmodifydate]
+[INFO][2017-04-01 13:04:53,844][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [fk12fefd1b6decc693]
+[INFO][2017-04-01 13:04:53,844][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary, fk12fefd1b6decc693]
+[INFO][2017-04-01 13:04:53,850][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.bootstrap_ace_menu
+[INFO][2017-04-01 13:04:53,851][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, id, icon, text, createdate, createdatetime, lastmodifydate, url, parent_id]
+[INFO][2017-04-01 13:04:53,851][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [fk8997ee4cfa925641]
+[INFO][2017-04-01 13:04:53,851][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [fk8997ee4cfa925641, primary]
+[INFO][2017-04-01 13:04:53,856][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.fornow_base_language
+[INFO][2017-04-01 13:04:53,856][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, language_id, createdate, createdatetime, language_name, lastmodifydate]
+[INFO][2017-04-01 13:04:53,856][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2017-04-01 13:04:53,856][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2017-04-01 13:04:53,861][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.fornow_class_type
+[INFO][2017-04-01 13:04:53,861][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, class_type_id, createdate, createdatetime, class_name, lastmodifydate]
+[INFO][2017-04-01 13:04:53,862][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2017-04-01 13:04:53,862][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2017-04-01 13:04:53,867][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.fornow_students
+[INFO][2017-04-01 13:04:53,867][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, name, createdate, student_id, user_id, createdatetime, lastmodifydate]
+[INFO][2017-04-01 13:04:53,868][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [fkd3c8c42a44d2e124]
+[INFO][2017-04-01 13:04:53,868][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary, fkd3c8c42a44d2e124]
+[INFO][2017-04-01 13:04:53,874][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.fornow_user
+[INFO][2017-04-01 13:04:53,874][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, username, createdate, createdatetime, user_id, lastmodifydate]
+[INFO][2017-04-01 13:04:53,874][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2017-04-01 13:04:53,874][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2017-04-01 13:04:53,880][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.images
+[INFO][2017-04-01 13:04:53,880][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, id, cover, name, createdate, newfilename, user_id, createdatetime, lastmodifydate, size]
+[INFO][2017-04-01 13:04:53,880][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [fkb95a8278691c2c7a]
+[INFO][2017-04-01 13:04:53,881][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary, fkb95a8278691c2c7a]
+[INFO][2017-04-01 13:04:53,889][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.img_user
+[INFO][2017-04-01 13:04:53,889][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, username, createdate, createdatetime, user_id, password, lastmodifydate]
+[INFO][2017-04-01 13:04:53,890][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2017-04-01 13:04:53,890][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2017-04-01 13:04:53,897][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.maxstudent
+[INFO][2017-04-01 13:04:53,897][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, bsid, createdate, ms_id, m_name, createdatetime, lastmodifydate]
+[INFO][2017-04-01 13:04:53,897][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [fkd5f75c3788da5cee]
+[INFO][2017-04-01 13:04:53,898][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary, fkd5f75c3788da5cee]
+[INFO][2017-04-01 13:04:53,903][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.prize
+[INFO][2017-04-01 13:04:53,904][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, id, name, createdate, probability, createdatetime, lastmodifydate]
+[INFO][2017-04-01 13:04:53,904][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2017-04-01 13:04:53,904][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2017-04-01 13:04:53,910][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.student
+[INFO][2017-04-01 13:04:53,910][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, nickname, createdate, student_id, user_id, createdatetime, lastmodifydate]
+[INFO][2017-04-01 13:04:53,910][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [fk8ffe823b9fc2b9c1]
+[INFO][2017-04-01 13:04:53,910][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [fk8ffe823b9fc2b9c1, primary]
+[INFO][2017-04-01 13:04:53,916][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.super_appointment
+[INFO][2017-04-01 13:04:53,916][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, student_id, createdate, createdatetime, appt_id, lastmodifydate]
+[INFO][2017-04-01 13:04:53,916][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [fk79d2c8dbe7a6ab0a]
+[INFO][2017-04-01 13:04:53,916][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary, fk79d2c8dbe7a6ab0a]
+[INFO][2017-04-01 13:04:53,922][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.super_appt_class
+[INFO][2017-04-01 13:04:53,923][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, class_id, appt_class_id, createdate, appt_id, createdatetime, lastmodifydate]
+[INFO][2017-04-01 13:04:53,923][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [fk7edeeff062603dac, fk7edeeff090020def]
+[INFO][2017-04-01 13:04:53,923][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [fk7edeeff062603dac, fk7edeeff090020def, primary]
+[INFO][2017-04-01 13:04:53,929][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.sys_menu
+[INFO][2017-04-01 13:04:53,929][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, id, action, createdate, parentid, label, createdatetime, ordervalue, leaf, expanded, lastmodifydate]
+[INFO][2017-04-01 13:04:53,929][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [fk74a44791145f6e0]
+[INFO][2017-04-01 13:04:53,929][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary, fk74a44791145f6e0]
+[INFO][2017-04-01 13:04:53,934][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.sys_permission
+[INFO][2017-04-01 13:04:53,934][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, permission_id, permission_name, createdate, createdatetime, permission_description, permission_parent_id, lastmodifydate, url]
+[INFO][2017-04-01 13:04:53,935][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [fkc9610a81685bbb72]
+[INFO][2017-04-01 13:04:53,935][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary, fkc9610a81685bbb72]
+[INFO][2017-04-01 13:04:53,941][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.sys_role
+[INFO][2017-04-01 13:04:53,941][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, role_description, role_id, createdate, createdatetime, role_parent_id, role_name, lastmodifydate]
+[INFO][2017-04-01 13:04:53,941][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [fk74a6b2a8e0897c40]
+[INFO][2017-04-01 13:04:53,941][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [fk74a6b2a8e0897c40, primary]
+[INFO][2017-04-01 13:04:53,947][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.sys_role_permission
+[INFO][2017-04-01 13:04:53,947][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, role_id, permission_id, role__permission_id, createdate, createdatetime, lastmodifydate]
+[INFO][2017-04-01 13:04:53,947][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [fkfb2eafc616fba69d, fkfb2eafc61333817d]
+[INFO][2017-04-01 13:04:53,947][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [fkfb2eafc616fba69d, fkfb2eafc61333817d, primary]
+[INFO][2017-04-01 13:04:53,953][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.sys_user
+[INFO][2017-04-01 13:04:53,953][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, user_name, user_parent_id, createdate, createdatetime, user_id, password, lastmodifydate]
+[INFO][2017-04-01 13:04:53,953][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [fk74a81dfd99f23a2a]
+[INFO][2017-04-01 13:04:53,953][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary, fk74a81dfd99f23a2a]
+[INFO][2017-04-01 13:04:53,958][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.sys_user_role
+[INFO][2017-04-01 13:04:53,958][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, user_role_id, role_id, createdate, user_id, createdatetime, lastmodifydate]
+[INFO][2017-04-01 13:04:53,958][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [fk660c51781333817d, fk660c5178b85e92dd]
+[INFO][2017-04-01 13:04:53,958][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [fk660c51781333817d, fk660c5178b85e92dd, primary]
+[INFO][2017-04-01 13:04:53,964][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.user
+[INFO][2017-04-01 13:04:53,964][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, username, createdate, createdatetime, user_id, password, lastmodifydate]
+[INFO][2017-04-01 13:04:53,964][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2017-04-01 13:04:53,964][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2017-04-01 13:04:53,969][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.ztree_icon
+[INFO][2017-04-01 13:04:53,969][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, id, icon, icon_close, rank_id, icon_open, createdate, createdatetime, lastmodifydate]
+[INFO][2017-04-01 13:04:53,969][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [fk6ce2fd40421f1488]
+[INFO][2017-04-01 13:04:53,969][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [fk6ce2fd40421f1488, primary]
+[INFO][2017-04-01 13:04:53,992][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.ztree_menu
+[INFO][2017-04-01 13:04:53,992][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, id, open, rank_id, name, createdate, createdatetime, lastmodifydate, url, parent_id]
+[INFO][2017-04-01 13:04:53,992][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [fk6ce4d626421f1488, fk6ce4d6268336e87d]
+[INFO][2017-04-01 13:04:53,992][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [fk6ce4d626421f1488, primary, fk6ce4d6268336e87d]
+[INFO][2017-04-01 13:04:53,998][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: dao_study.ztree_rank
+[INFO][2017-04-01 13:04:53,998][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [lastmodifydatetime, id, rank_value, createdate, rank_name, createdatetime, lastmodifydate]
+[INFO][2017-04-01 13:04:53,998][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2017-04-01 13:04:53,999][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2017-04-01 13:04:54,000][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000232: Schema update complete

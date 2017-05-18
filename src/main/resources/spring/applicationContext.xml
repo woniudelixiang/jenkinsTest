@@ -84,12 +84,11 @@
 <!-- 	</bean> -->
  
 	<!-- pool配置 -->
-	<bean id="jedisPoolConfig" class="redis.clients.jedis.JedisPoolConfig">
-		<!--  <property name="maxActive" value="${jedis.maxActive}" /> -->
-		 <property name="maxIdle" value="${jedis.maxIdle}" />
-		<property name="maxWaitMillis" value="${jedis.maxWaitMillis}" />
-		<property name="testOnBorrow" value="${jedis.testOnBorrow}" /> 
-	</bean>
+<!-- 	<bean id="jedisPoolConfig" class="redis.clients.jedis.JedisPoolConfig"> -->
+<!-- 		 <property name="maxIdle" value="${jedis.maxIdle}" /> -->
+<!-- 		<property name="maxWaitMillis" value="${jedis.maxWaitMillis}" /> -->
+<!-- 		<property name="testOnBorrow" value="${jedis.testOnBorrow}" />  -->
+<!-- 	</bean> -->
 	
 	<!-- jedis pool配置 -->
 <!-- 	<bean id="jedisPool" class="redis.clients.jedis.JedisPool"> -->

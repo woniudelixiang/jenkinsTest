@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE taglib PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.2//EN"
+	"http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd">
+<taglib>
+   
+  	<tlib-version>1.6</tlib-version>
+    <jsp-version>1.2</jsp-version>
+    <short-name>tokenTag</short-name>
+    <description>tokenTag</description>
+	<uri>http://taoists.com/ueye</uri>
+	
+	  <tag>
+	    <name>token</name>  
+	    <tagclass>com.wqj.common.tag.TokenTag</tagclass>
+	  </tag>
+</taglib>

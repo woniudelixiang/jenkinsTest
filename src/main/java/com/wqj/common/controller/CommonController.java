@@ -24,6 +24,12 @@ import com.wqj.jqueryFileUpload.service.BaseImageEntityService;
 import com.wqj.jqueryFileUpload.service.ImageService;
 import com.wqj.jqueryFileUpload.service.ImgUserService;
 import com.wqj.lottery.service.PrizeService;
+import com.wqj.systemPermission.service.DepartmentService;
+import com.wqj.systemPermission.service.SystemPermissionService;
+import com.wqj.systemPermission.service.SystemRolePermissionService;
+import com.wqj.systemPermission.service.SystemRoleService;
+import com.wqj.systemPermission.service.SystemUserRoleService;
+import com.wqj.systemPermission.service.SystemUserService;
 import com.wqj.ztree.service.ZtreeService;
 
 /**
@@ -110,11 +116,11 @@ public abstract class CommonController {
 					+ SystemPropertyInit.getInstance().getProperty("server.host") + ")]"
 					+ authorName + ":" + modelName + "==>" + functionName;
 			// 发送错误的邮件
-			sendMaileUtil.sendSyncMail("simon-jiafa@126.com", mailContent, exception);
-			sendMaileUtil.sendSyncMail("l_chengzi@sina.com", mailContent, exception);// 陈乐
-			sendMaileUtil.sendSyncMail("wqjjob@126.com", mailContent, exception); // 王启军
-			sendMaileUtil.sendSyncMail("1051384057@qq.com", mailContent, exception); // 葛升
-			sendMaileUtil.sendSyncMail("18551745986@163.com", mailContent, exception); // 朱子明
+//			sendMaileUtil.sendSyncMail("simon-jiafa@126.com", mailContent, exception);
+//			sendMaileUtil.sendSyncMail("l_chengzi@sina.com", mailContent, exception);// 陈乐
+//			sendMaileUtil.sendSyncMail("wqjjob@126.com", mailContent, exception); // 王启军
+//			sendMaileUtil.sendSyncMail("1051384057@qq.com", mailContent, exception); // 葛升
+//			sendMaileUtil.sendSyncMail("18551745986@163.com", mailContent, exception); // 朱子明
 		} catch (UnknownHostException e1) {
 			e1.printStackTrace();
 		}
@@ -160,4 +166,19 @@ public abstract class CommonController {
 	public BootstrapAceMenuService bootstrapAceMenuService;
 	@Autowired
 	public SuperAppointmentService superAppointmentService;
+	
+	
+	
+	@Autowired
+	public SystemRoleService systemRoleService;
+	@Autowired
+	public SystemPermissionService systemPermissionService;
+	@Autowired
+	public SystemRolePermissionService systemRolePermissionService;
+	@Autowired
+	public SystemUserRoleService systemUserRoleService;
+	@Autowired
+	public SystemUserService systemUserService;
+	@Autowired
+	public DepartmentService departmentService;
 }

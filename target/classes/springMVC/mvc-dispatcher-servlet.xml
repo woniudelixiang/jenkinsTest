@@ -87,4 +87,37 @@
 		<property name="suffix" value=".jsp" />
 	</bean>
 	
+	<!-- 拦截器 -->  
+    <mvc:interceptors>  
+        <!-- 多个拦截器，顺序执行 -->  
+        <mvc:interceptor>  
+            <mvc:mapping path="/**"/>  
+            <bean class="com.wqj.common.interceptor.PermissionInterceptor">
+            	<property name="noLimitResource">
+            		<list>
+            			<value>/sys/user/login</value>
+            			<value>/sys/user/loginOut</value>
+            			<value>/sys/permission/noPower</value>
+            			<value>/sys/home/overdue</value>
+            		</list>
+            	</property>
+            	
+            	<property name="loginResource">
+            		<list>
+<!--             			<value>/sys/home/main</value> -->
+<!--             			<value>/sys/home/top</value> -->
+<!--             			<value>/sys/home/left</value> -->
+<!--             			<value>/sys/home/right</value> -->
+<!--             			<value>/sys/home/botton</value> -->
+            		</list>
+            	</property>
+            	
+            </bean>  
+        </mvc:interceptor>  
+        <mvc:interceptor>  
+            <mvc:mapping path="/**"/>  
+            <bean class="com.wqj.common.interceptor.FormTokenInterceptor" />
+        </mvc:interceptor>
+    </mvc:interceptors>  
+	
 </beans>

@@ -266,7 +266,7 @@
                 total += v[ 0 ];
                 console.log("v: " + v);
                 loaded += v[ 0 ] * v[ 1 ];
-            } );
+            });
 
             percent = total ? loaded / total : 0;
             

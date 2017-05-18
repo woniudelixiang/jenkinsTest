@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<decorators defaultdir="/common/sitemesh">
+	
+	<!-- http://www.icoolxue.com/album/show/40 -->
+	
+	<exclude>
+		<pattern>/*</pattern>
+	</exclude>
+	
+	<!-- 需要装饰页面的匹配 -->
+<!-- 	<decorator name="main" page="base.jsp"> -->
+<!-- 		<pattern>*</pattern> -->
+<!-- 	</decorator>  -->
+	
+</decorators>

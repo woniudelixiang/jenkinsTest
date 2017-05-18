@@ -158,10 +158,23 @@
 		</dependency>
 
 		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${spring-framework.version}</version>
+		</dependency>
+
+		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
 			<version>4.1.3.Final</version>
 		</dependency>
+		
+<!-- 		<dependency> -->
+<!-- 		    <groupId>org.hibernate</groupId> -->
+<!-- 		    <artifactId>hibernate-core</artifactId> -->
+<!-- 		    <version>5.2.6.Final</version> -->
+<!-- 		</dependency> -->
+
 
 		<dependency>
 			<groupId>commons-dbcp</groupId>
@@ -633,5 +646,30 @@
 		    <version>4.1.6.Final</version>
 		</dependency>
 		
+		<!-- https://mvnrepository.com/artifact/opensymphony/sitemesh -->
+		<dependency>
+		    <groupId>opensymphony</groupId>
+		    <artifactId>sitemesh</artifactId>
+		    <version>2.4.2</version>
+		</dependency>
+		
+		
+<!-- 		https://mvnrepository.com/artifact/org.apache.struts/struts2-core -->
+<!-- 		<dependency> -->
+<!-- 		    <groupId>org.apache.struts</groupId> -->
+<!-- 		    <artifactId>struts2-core</artifactId> -->
+<!-- 		    <version>2.5.8</version> -->
+<!-- 		</dependency> -->
+
+<!-- 		<dependency> -->
+<!-- 		    <groupId>org.apache.struts</groupId> -->
+<!-- 		    <artifactId>struts-core</artifactId> -->
+<!-- 		    <version>1.3.10</version> -->
+<!-- 		</dependency> -->
+<!-- 		<dependency> -->
+<!-- 		    <groupId>org.apache.struts</groupId> -->
+<!-- 		    <artifactId>struts-taglib</artifactId> -->
+<!-- 		    <version>1.3.10</version> -->
+<!-- 		</dependency> -->
 	</dependencies>
 </project>

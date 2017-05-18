@@ -66,12 +66,6 @@ public class RedisController extends CommonController {
 		
 	}
 	
-	
-	
-	
-	
-	
-	
 	public static void main(String[] args) {
 		/*User user = new User(1,"wqj");
 		String result = setUser(user);

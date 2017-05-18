@@ -1,7 +1,5 @@
 package com.wqj.schedule;
 
-import java.util.Date;
-
 import org.quartz.CronTrigger;
 import org.quartz.Job;
 import org.quartz.JobDetail;
@@ -9,8 +7,6 @@ import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
 import org.quartz.Scheduler;
 import org.quartz.SchedulerFactory;
-import org.quartz.Trigger;
-import org.quartz.helpers.TriggerUtils;
 import org.quartz.impl.StdSchedulerFactory;
 
 public class QuartzDemo implements Job{

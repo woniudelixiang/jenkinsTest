@@ -44,6 +44,23 @@
 	</tag>
 	
 	<tag>
+		<name>a</name>
+		<tag-class>com.wqj.common.tag.AnchorTag</tag-class>
+		<attribute>
+			<name>href</name>
+			<required>false</required>
+			<!-- rtexprvalue的含义是属性的值是否支持el表达式的写法 (表示该自定义标签的某属性的值可以直接指定或者通过动态计算指定  )-->
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>onclick</name>
+			<required>false</required>
+			<!-- rtexprvalue的含义是属性的值是否支持el表达式的写法 (表示该自定义标签的某属性的值可以直接指定或者通过动态计算指定  )-->
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+	
+	<tag>
         <name>each</name>
         <tag-class>com.wqj.common.tag.EachTag</tag-class>
         <!-- <body-content>JSP</body-content> -->

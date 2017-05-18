@@ -73,6 +73,11 @@ public abstract class BaseDaoSupport<T extends BaseEntity> implements BaseDao<T>
 	}
 	
 	@Override
+	public void merge(T entity) {
+		getSession().merge(entity);
+	}
+	
+	@Override
 	@Transactional
 	public void saveOrUpdate(T entity) {
 		getSession().saveOrUpdate(entity);

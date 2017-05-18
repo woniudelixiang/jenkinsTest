@@ -3,7 +3,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee   http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
 	
-	<!-- 通配置contextConfigLocation参数来配置Spring -->
+	<!-- 通过配置contextConfigLocation参数来配置Spring -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>classpath:groups.xml</param-value>
@@ -14,7 +14,18 @@
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
 	
-		<!-- *********************************  字符集过滤器 start  *********************************************-->  
+	<listener>
+        <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
+ 	</listener>
+ 	
+	<listener>
+        <listener-class>com.wqj.common.listener.MenuListener</listener-class>
+        <listener-class>com.wqj.common.listener.OnlineUserListener</listener-class>
+ 	</listener>
+ 	
+ 	
+	
+	<!-- *********************************  字符集过滤器 start  *********************************************-->  
 	<filter>  
 		<filter-name>encodingFilter</filter-name>  
 		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>  
@@ -58,6 +69,18 @@
 	</servlet-mapping>
 	<!-- 前置控制器   end  -->
 	
+	
+	<filter>
+		<filter-name>sitemesh</filter-name>
+		<filter-class>com.opensymphony.module.sitemesh.filter.PageFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>sitemesh</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	
+	
 	<!-- 	excel 导出工具 -->
 <!-- 	<servlet> -->
 <!-- 		<description>excel servlet</description> -->
@@ -86,31 +109,14 @@
 		<load-on-startup>3</load-on-startup>
 	</servlet>
 
-
-
-	<system.web>
-		<authentication mode="Forms"><!--默认状态下位Windows -->
-			<forms loginUrl="index.jsp" name=".ASPXFORMSAUTH"></forms>
-		</authentication>
-		<authorization>
-			<allow users="*" /><!--允许任何访问者访问 -->
-		</authorization>
-	</system.web>
-
-	<location path="Admin"><!--注意：该节点最好跟在</system.web>之后，尽管这两个节点可能在web.config文件中相隔比较远，不要觉得有什么疑惑。下面是对Admin文件夹的访问权限的配置。 -->
-		<system.web>
-			<authorization>
-				<deny users="?" /><!--阻止匿名用户访问 -->
-			</authorization>
-		</system.web>
-	</location>   
-
-	
-	
 	<jsp-config>
 		<taglib>
 			<taglib-uri>ueye</taglib-uri>
 			<taglib-location>/WEB-INF/ueyes.tld</taglib-location>
+		</taglib>
+		<taglib>
+			<taglib-uri>tokenTag</taglib-uri>
+			<taglib-location>/WEB-INF/tag.tld</taglib-location>
 		</taglib>
 	</jsp-config>
 	
